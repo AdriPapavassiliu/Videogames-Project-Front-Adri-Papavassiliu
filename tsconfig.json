@@ -20,5 +20,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "jest.config.js",
+    "src/components/Navigation/Navigations.test.js"
+  ],
+  "exclude": ["node_modules"]
 }
