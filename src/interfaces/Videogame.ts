@@ -4,5 +4,5 @@ export interface Videogame {
   platforms: string[];
   description: string;
   image: string;
-  year?: Number;
+  year?: number;
 }
