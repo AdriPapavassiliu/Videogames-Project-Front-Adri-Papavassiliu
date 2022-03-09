@@ -17,6 +17,7 @@ const loadVideogamesReducer = (
       newVideogames = currentVideogames;
       break;
   }
+  return newVideogames;
 };
 
 export default loadVideogamesReducer;
