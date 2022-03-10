@@ -6,7 +6,7 @@ import HomePage from "./HomePage";
 
 describe("Given a HomePage component", () => {
   describe("When it's rendered", () => {
-    test("Then it should render a h1 element with the text 'Buzzs'", () => {
+    test("Then it should render 2 headings", () => {
       const expectedHeadings = 2;
 
       render(
