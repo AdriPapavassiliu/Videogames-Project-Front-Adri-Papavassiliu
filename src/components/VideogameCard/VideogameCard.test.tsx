@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import VideogameCard from "./VideogameCard";
 
-describe("Given a Navigation component", () => {
+describe("Given a VideogameCard component", () => {
   describe("When it's rendered", () => {
     test("Then it should render an image", () => {
       const videogame = {
