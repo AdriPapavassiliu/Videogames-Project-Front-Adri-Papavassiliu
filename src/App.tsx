@@ -1,21 +1,17 @@
-import Navigation from "./components/Navigation/Navigation";
-import VideogameCard from "./components/VideogameCard/VideogameCard";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "@fontsource/work-sans";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
-    <div>
-      <Navigation />
-      <VideogameCard
-        videogame={{
-          name: "Apex Legends",
-          image: "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
-          platforms: ["PS4", "XBOX", "PS5", "PC"],
-          genre: "",
-          description: "",
-        }}
-      />
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigate to="/home" />} />
+      <Route path="/login" element={"placeholder <LoginPage>"} />
+      <Route path="/register" element={"placeholder <RegisterPage>"} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/videogame/:id" element={"placeholder <MoviePage />"} />
+      <Route path="*" element={"<NotFoundPage />"} />
+    </Routes>
   );
 }
 
