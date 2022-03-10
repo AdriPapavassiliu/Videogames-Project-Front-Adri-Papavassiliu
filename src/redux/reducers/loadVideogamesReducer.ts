@@ -4,7 +4,7 @@ import actionsTypes from "../actions/actionsTypes";
 
 const loadVideogamesReducer = (
   currentVideogames: Videogame[] = [],
-  action: AnyAction
+  action: AnyAction = { type: "", videogames: [] }
 ) => {
   let newVideogames: Videogame[];
 
