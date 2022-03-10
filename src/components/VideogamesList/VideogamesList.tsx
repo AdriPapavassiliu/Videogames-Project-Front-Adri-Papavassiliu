@@ -8,6 +8,7 @@ interface VideogameListProps {
 const VideogamesList = ({ videogames }: VideogameListProps): JSX.Element => {
   return (
     <>
+      <h3>{videogames.length} items</h3>
       <ul>
         {videogames.map((videogame: Videogame) => {
           return <VideogameCard videogame={videogame} />;
