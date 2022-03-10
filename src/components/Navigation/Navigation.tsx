@@ -52,7 +52,9 @@ const Navigation = (): JSX.Element => {
           </li>
           <li className="logo">
             <Link to={"/home"}>
-              <span>Video</span>games
+              <h1>
+                <span>Video</span>games
+              </h1>
             </Link>
           </li>
           <li>
