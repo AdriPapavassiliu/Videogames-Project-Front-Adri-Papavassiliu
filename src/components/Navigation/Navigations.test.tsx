@@ -1,4 +1,5 @@
 import { render, screen } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
 import Navigation from "./Navigation";
 
 describe("Given a Navigation component", () => {
@@ -6,7 +7,11 @@ describe("Given a Navigation component", () => {
     test("Then it should render 4 anchors", () => {
       const numberOfAnchors = 4;
 
-      render(<Navigation />);
+      render(
+        <BrowserRouter>
+          <Navigation />
+        </BrowserRouter>
+      );
 
       const allLinks = screen.getAllByRole("link");
 
