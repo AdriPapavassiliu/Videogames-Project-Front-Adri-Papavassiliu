@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import "@fontsource/montserrat-alternates";
+import { Link } from "react-router-dom";
 
 export const Navbar = styled.nav`
   background-color: #157a6e;
@@ -45,24 +46,24 @@ const Navigation = (): JSX.Element => {
       <Navbar className="nav-bar">
         <ul>
           <li className="account">
-            <a href="/register">
+            <Link to={"/login"}>
               <FontAwesomeIcon icon={faUser} />
-            </a>
-          </li>
-          <li>
-            <a href="/home">
-              <span>Video</span>games
-            </a>
-          </li>
-          <li>
-            <a href="/liked">
-              <FontAwesomeIcon icon={faHeart} />
-            </a>
+            </Link>
           </li>
           <li className="logo">
-            <a href="/create-videogame">
+            <Link to={"/home"}>
+              <span>Video</span>games
+            </Link>
+          </li>
+          <li>
+            <Link to={"/my-videogames"}>
+              <FontAwesomeIcon icon={faHeart} />
+            </Link>
+          </li>
+          <li>
+            <Link to={"/add-videogame"}>
               <FontAwesomeIcon icon={faSquarePlus} />
-            </a>
+            </Link>
           </li>
         </ul>
       </Navbar>
