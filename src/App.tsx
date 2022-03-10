@@ -9,6 +9,7 @@ function App() {
       <Route path="/login" element={"placeholder <LoginPage>"} />
       <Route path="/register" element={"placeholder <RegisterPage>"} />
       <Route path="/home" element={<HomePage />} />
+      <Route path="/videogame/:id" element={"placeholder <MoviePage />"} />
       <Route path="*" element={"<NotFoundPage />"} />
     </Routes>
   );
