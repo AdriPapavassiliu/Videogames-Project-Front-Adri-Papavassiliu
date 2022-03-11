@@ -3,7 +3,7 @@ import { Videogame } from "../../interfaces/Videogame";
 import VideogameCard from "../VideogameCard/VideogameCard";
 
 export const MainStyles = styled.main`
-  padding-top: 89px;
+  padding-top: 16px;
 `;
 export const VideogameListStyles = styled.ul`
   display: flex;
@@ -19,6 +19,7 @@ export const HeadingStyles = styled.h3`
   display: flex;
   transform: translateX(50px);
   padding-bottom: 10px;
+  width: fit-content;
 `;
 
 interface VideogameListProps {
