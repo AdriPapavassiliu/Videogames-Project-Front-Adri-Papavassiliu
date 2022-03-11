@@ -1,23 +1,64 @@
+import styled from "styled-components";
+import Button from "../Button/Button";
+
+export const FilterBarStyles = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  width: fit-content;
+
+  & li {
+  }
+`;
+
 const FilterBar = (): JSX.Element => {
   return (
     <>
-      <ul>
+      <FilterBarStyles>
         <li>
-          <button>All</button>
+          <Button
+            text="All"
+            actionOnClick={() => console.log("h")}
+            type="filter"
+            key={"All"}
+          ></Button>
         </li>
         <li>
-          <button>PS4</button>
+          <Button
+            text="PS4"
+            actionOnClick={() => console.log("h")}
+            type="filter"
+            key={"PS4"}
+          ></Button>
         </li>
         <li>
-          <button>XBOX</button>
+          <Button
+            text="XBOX"
+            actionOnClick={() => console.log("h")}
+            type="filter"
+            key={"XBOX"}
+          ></Button>
         </li>
         <li>
-          <button>PS5</button>
+          <Button
+            text="PS5"
+            actionOnClick={() => console.log("h")}
+            type="filter"
+            key={"PS5"}
+          ></Button>
         </li>
         <li>
-          <button>PC</button>
+          <Button
+            text="PC"
+            actionOnClick={() => console.log("h")}
+            type="filter"
+            key={"PC"}
+          ></Button>
         </li>
-      </ul>
+      </FilterBarStyles>
     </>
   );
 };

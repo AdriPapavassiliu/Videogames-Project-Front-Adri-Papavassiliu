@@ -3,7 +3,7 @@ import { Videogame } from "../../interfaces/Videogame";
 import VideogameCard from "../VideogameCard/VideogameCard";
 
 export const MainStyles = styled.main`
-  padding-top: 89px;
+  padding-top: 16px;
 `;
 export const VideogameListStyles = styled.ul`
   display: flex;

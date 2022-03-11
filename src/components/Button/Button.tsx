@@ -11,13 +11,16 @@ export const FormButtonStyle = styled.button`
 `;
 
 export const FilterBarButtonStyle = styled.button`
-  background-color: black;
-  font-size: 22px;
-  width: 316px;
-  height: 46px;
-  color: red;
+  margin: 0;
+  width: 47px;
+  height: 30px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
   border-style: none;
-  cursor: pointer;
+  justify-content: center;
+  font-size: 12px;
 `;
 
 interface ButtonProps {
