@@ -23,11 +23,19 @@ export const Navbar = styled.nav`
     margin: 0;
     padding: 0;
     width: 100%;
+    top: 0;
 
     & li {
       font-size: 22px;
       font-family: Montserrat Alternates;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+
+      & h1 {
+        margin: 0;
+        font-size: 27px;
+      }
 
       & a {
         color: #ffffff;

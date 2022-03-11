@@ -4,35 +4,33 @@ import styled from "styled-components";
 export const VideogameCardStyle = styled.li`
   display: flex;
   flex-direction: column;
-  width: 40vw;
+  width: 35vw;
   align-items: center;
 
   & .card__image {
-    height: 300px;
+    height: 247px;
     cursor: pointer;
     & img {
-      width: 160px;
-      height: 282px;
+      width: 130px;
+      height: 228px;
       border-radius: 25px;
     }
 
     & button {
       border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      font-size: 10px;
+      width: 31px;
+      height: 31px;
       color: #000000;
       background-color: #fff;
       border: none;
       padding: 0;
-
       bottom: 10px;
-      transform: translateX(110px) translateY(-25px);
+      transform: translateX(84px) translateY(-20px);
       box-shadow: 1px 1px #e5e5e5;
 
       & svg {
-        width: 25px;
-        height: 25px;
+        width: 22px;
+        height: 22px;
       }
     }
   }
@@ -46,7 +44,8 @@ export const VideogameCardStyle = styled.li`
       display: flex;
       align-items: center;
       margin-top: 0;
-      margin-bottom: 5px;
+      margin-bottom: 0;
+      font-size: 15px;
     }
 
     & .card__platforms {
@@ -58,13 +57,14 @@ export const VideogameCardStyle = styled.li`
         margin: 5px;
         margin-right: 1px;
         margin-bottom: 0;
-        width: 40px;
+        width: 30px;
         background-color: #e5e5e5;
         padding: 6px;
         border-radius: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 11px;
       }
     }
   }
