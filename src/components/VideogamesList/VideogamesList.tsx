@@ -10,7 +10,7 @@ export const VideogameListStyles = styled.ul`
   flex-wrap: wrap;
   margin: 0;
   gap: 25px;
-  justify-content: center;
+  margin-left: 40px;
   padding: 0;
 `;
 

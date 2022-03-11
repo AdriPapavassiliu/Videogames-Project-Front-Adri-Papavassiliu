@@ -15,14 +15,15 @@ export const Navbar = styled.nav`
   position: fixed;
   align-items: center;
   display: flex;
+  justify-content: center;
 
   & ul {
     display: flex;
     list-style: none;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 90vw;
     top: 0;
 
     & li {
