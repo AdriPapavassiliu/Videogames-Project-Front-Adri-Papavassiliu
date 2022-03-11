@@ -6,8 +6,8 @@ import HomePage from "./HomePage";
 
 describe("Given a HomePage component", () => {
   describe("When it's rendered", () => {
-    test("Then it should render 2 headings", () => {
-      const expectedHeadings = 2;
+    test("Then it should render 1 heading", () => {
+      const expectedHeadings = 1;
 
       render(
         <BrowserRouter>

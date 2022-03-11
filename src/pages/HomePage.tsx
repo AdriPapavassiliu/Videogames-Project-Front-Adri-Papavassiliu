@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "../components/FilterBar/FilterBar";
-import Navigation from "../components/Navigation/Navigation";
 import VideogamesList from "../components/VideogamesList/VideogamesList";
 import { Videogame } from "../interfaces/Videogame";
 import { RootState } from "../redux/store";
@@ -19,7 +18,6 @@ const HomePage = (): JSX.Element => {
 
   return (
     <>
-      <Navigation />
       <FilterBar />
       <VideogamesList videogames={videogamesList} />
     </>

@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 export const FilterBarStyles = styled.ul`
   list-style: none;
   margin: 0;
-  padding-top: 8px;
+  padding-top: 80px;
   display: flex;
   flex-direction: row;
   gap: 8px;

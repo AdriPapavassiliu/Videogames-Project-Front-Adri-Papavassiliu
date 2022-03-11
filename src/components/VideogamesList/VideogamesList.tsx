@@ -19,6 +19,7 @@ export const HeadingStyles = styled.h3`
   display: flex;
   transform: translateX(50px);
   padding-bottom: 10px;
+  width: fit-content;
 `;
 
 interface VideogameListProps {
