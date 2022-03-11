@@ -1,19 +1,26 @@
 import { Videogame } from "../../interfaces/Videogame";
 import styled from "styled-components";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const VideogameCardStyle = styled.li`
   display: flex;
   flex-direction: column;
-  width: 35vw;
+  width: 135px;
   align-items: center;
+  position: relative;
 
   & .card__image {
     height: 247px;
-    cursor: pointer;
     & img {
       width: 130px;
       height: 228px;
       border-radius: 25px;
+      cursor: pointer;
+    }
+
+    & button :hover {
+      color: #eaa92a;
     }
 
     & button {
@@ -25,13 +32,26 @@ export const VideogameCardStyle = styled.li`
       border: none;
       padding: 0;
       bottom: 10px;
-      transform: translateX(84px) translateY(-20px);
       box-shadow: 1px 1px #e5e5e5;
+      position: absolute;
+      left: 80px;
+      top: 210px;
+      cursor: pointer;
 
       & svg {
         width: 22px;
         height: 22px;
       }
+    }
+
+    & .delete-button {
+      width: 25px;
+      height: 25px;
+      color: #fff;
+      background-color: #c70000;
+      left: 110px;
+      top: -5px;
+      box-shadow: none;
     }
   }
 
@@ -80,6 +100,9 @@ const VideogameCard = ({
     <>
       <VideogameCardStyle className="card">
         <div className="card__image">
+          <button className="delete-button">
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
           <img src={image} alt={`${name} card`}></img>
           <button>
             <svg
