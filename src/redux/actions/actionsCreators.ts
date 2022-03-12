@@ -5,3 +5,8 @@ export const loadVideogamesAction = (videogames: Videogame[]) => ({
   type: actionsTypes.loadVideogames,
   videogames,
 });
+
+export const deleteVideogameAction = (videogameId: string) => ({
+  type: actionsTypes.deleteVideogame,
+  videogameId,
+});
