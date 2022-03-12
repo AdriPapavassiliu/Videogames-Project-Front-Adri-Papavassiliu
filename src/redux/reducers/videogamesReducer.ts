@@ -6,7 +6,7 @@ import {
   DeleteVideogameActionInterface,
 } from "../../interfaces/Action";
 
-const loadVideogamesReducer = (
+const videogamesReducer = (
   currentVideogames: Videogame[] = [],
   action:
     | Action
@@ -33,4 +33,4 @@ const loadVideogamesReducer = (
   return newVideogames;
 };
 
-export default loadVideogamesReducer;
+export default videogamesReducer;
