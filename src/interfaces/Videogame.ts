@@ -5,4 +5,5 @@ export interface Videogame {
   description: string;
   image: string;
   year?: number;
+  id?: string;
 }
