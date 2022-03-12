@@ -1,5 +1,5 @@
 import { Videogame } from "../../interfaces/Videogame";
-import { loadVideogamesAction } from "./actionsCreators";
+import { deleteVideogameAction, loadVideogamesAction } from "./actionsCreators";
 
 describe("Given a loadVideogamesAction function", () => {
   describe("When it receives videogames", () => {
@@ -31,6 +31,23 @@ describe("Given a loadVideogamesAction function", () => {
       };
 
       const action = loadVideogamesAction(videogames);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a deleteVideogameAction function", () => {
+  describe("When it receives a videogameId", () => {
+    test("Then it should return an object with the action and videogameId", () => {
+      const videogameId: string = "1";
+
+      const expectedAction = {
+        type: "delete-videogame",
+        videogameId,
+      };
+
+      const action = deleteVideogameAction(videogameId);
 
       expect(action).toEqual(expectedAction);
     });
