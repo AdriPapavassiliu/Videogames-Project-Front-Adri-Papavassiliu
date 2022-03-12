@@ -2,6 +2,8 @@ import { Videogame } from "../../interfaces/Videogame";
 import styled from "styled-components";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch } from "react-redux";
+import { deleteVideogameThunk } from "../../redux/thunks/videogamesThunk";
 
 export const VideogameCardStyle = styled.li`
   display: flex;
@@ -66,6 +68,7 @@ export const VideogameCardStyle = styled.li`
       margin-top: 0;
       margin-bottom: 0;
       font-size: 15px;
+      height: 36px;
     }
 
     & .card__platforms {
@@ -94,13 +97,24 @@ interface VideogameCardProps {
 }
 
 const VideogameCard = ({
-  videogame: { name, description, genre, image, platforms },
+  videogame: { name, description, genre, image, platforms, id },
 }: VideogameCardProps): JSX.Element => {
+  const dispatch = useDispatch();
+
+  const deleteVideogame = (videogameId: any): void => {
+    dispatch(deleteVideogameThunk(videogameId));
+  };
+
   return (
     <>
-      <VideogameCardStyle className="card">
+      <VideogameCardStyle className="card" key={id}>
         <div className="card__image">
-          <button className="delete-button">
+          <button
+            className="delete-button"
+            onClick={() => {
+              deleteVideogame(id);
+            }}
+          >
             <FontAwesomeIcon icon={faXmark} />
           </button>
           <img src={image} alt={`${name} card`}></img>
