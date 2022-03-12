@@ -1,8 +1,8 @@
 import { Videogame } from "../../interfaces/Videogame";
 import actionsTypes from "../actions/actionsTypes";
-import loadVideogamesReducer from "./loadVideogamesReducer";
+import videogamesReducer from "./videogamesReducer";
 
-describe("Given a loadVideogamesReducer function", () => {
+describe("Given a videogamesReducer function", () => {
   describe("When it is called with a loadVideogames action with 'videogames' and an empty currentVideogames", () => {
     test("Then it should return the new state with the array of videogames", () => {
       const currentVideogames: Videogame[] = [];
@@ -32,7 +32,7 @@ describe("Given a loadVideogamesReducer function", () => {
         videogames: videogames,
       };
 
-      const newState = loadVideogamesReducer(currentVideogames, action);
+      const newState = videogamesReducer(currentVideogames, action);
 
       expect(newState).toEqual(videogames);
     });
@@ -66,7 +66,7 @@ describe("Given a loadVideogamesReducer function", () => {
         videogames: currentVideogames,
       };
 
-      const newState = loadVideogamesReducer(currentVideogames, action);
+      const newState = videogamesReducer(currentVideogames, action);
 
       expect(newState).toEqual(currentVideogames);
     });
@@ -74,9 +74,56 @@ describe("Given a loadVideogamesReducer function", () => {
 
   describe("When it's called without state nor action", () => {
     test("Then it should return an empty array as new state", () => {
-      const newState = loadVideogamesReducer();
+      const newState = videogamesReducer();
 
       expect(newState).toHaveLength(0);
+    });
+  });
+
+  describe("When it is called with a deleteVideogame action with 'videogameId' and videogames", () => {
+    test("Then it should return the new state with the array of expectedVideogames", () => {
+      const videogameId: string = "3";
+      const videogames: Videogame[] = [
+        {
+          name: "Apex Legends",
+          image: "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
+          platforms: ["PS4", "XBOX", "PS5", "PC"],
+          genre: "Shooter",
+          description:
+            "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
+          year: 2019,
+          id: "1",
+        },
+        {
+          name: "Delete me",
+          image: "",
+          platforms: [],
+          genre: "Delete",
+          description: "",
+          year: 2013,
+          id: videogameId,
+        },
+      ];
+      const expectedVideogames: Videogame[] = [
+        {
+          name: "Apex Legends",
+          image: "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
+          platforms: ["PS4", "XBOX", "PS5", "PC"],
+          genre: "Shooter",
+          description:
+            "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
+          year: 2019,
+          id: "1",
+        },
+      ];
+      const action = {
+        type: actionsTypes.deleteVideogame,
+        videogameId,
+      };
+
+      const newState = videogamesReducer(videogames, action);
+
+      expect(newState).toEqual(expectedVideogames);
     });
   });
 });

@@ -9,7 +9,7 @@ import { loadVideogamesThunk } from "../redux/thunks/videogamesThunk";
 const HomePage = (): JSX.Element => {
   const dispatch = useDispatch();
   const videogamesList: Videogame[] = useSelector(
-    (state: RootState) => state.loadVideogames
+    (state: RootState) => state.videogamesReducer
   );
 
   useEffect(() => {
