@@ -18,44 +18,39 @@ const FilterBar = (): JSX.Element => {
   return (
     <>
       <FilterBarStyles>
-        <li>
+        <li key={"All"}>
           <Button
             text="All"
             actionOnClick={() => console.log("h")}
             type="filter"
-            key={"All"}
           ></Button>
         </li>
-        <li>
+        <li key={"PS4"}>
           <Button
             text="PS4"
             actionOnClick={() => console.log("h")}
             type="filter"
-            key={"PS4"}
           ></Button>
         </li>
-        <li>
+        <li key={"XBOX"}>
           <Button
             text="XBOX"
             actionOnClick={() => console.log("h")}
             type="filter"
-            key={"XBOX"}
           ></Button>
         </li>
-        <li>
+        <li key={"PS5"}>
           <Button
             text="PS5"
             actionOnClick={() => console.log("h")}
             type="filter"
-            key={"PS5"}
           ></Button>
         </li>
-        <li>
+        <li key={"PC"}>
           <Button
             text="PC"
             actionOnClick={() => console.log("h")}
             type="filter"
-            key={"PC"}
           ></Button>
         </li>
       </FilterBarStyles>
