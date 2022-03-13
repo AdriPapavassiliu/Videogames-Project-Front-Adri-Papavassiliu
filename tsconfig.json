@@ -24,7 +24,8 @@
     "**/*.ts",
     "**/*.tsx",
     "jest.config.js",
-    "src/components/Navigation/Navigations.test.js"
+    "src/components/Navigation/Navigations.test.js",
+    "src/mocks/handlers.ts"
   ],
   "exclude": ["node_modules"]
 }
