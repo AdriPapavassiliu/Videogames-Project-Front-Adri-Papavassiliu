@@ -1,6 +1,9 @@
 import { AnyAction } from "redux";
 import { ThunkDispatch } from "redux-thunk";
-import { loadVideogamesAction } from "../actions/actionsCreators";
+import {
+  deleteVideogameAction,
+  loadVideogamesAction,
+} from "../actions/actionsCreators";
 
 export const loadVideogamesThunk = async (
   dispatch: ThunkDispatch<void, unknown, AnyAction>
@@ -21,6 +24,6 @@ export const deleteVideogameThunk =
       }
     );
     if (response.ok) {
-      dispatch(deleteVideogameThunk(videogameId));
+      dispatch(deleteVideogameAction(videogameId));
     }
   };

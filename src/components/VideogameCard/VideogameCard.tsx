@@ -36,7 +36,7 @@ export const VideogameCardStyle = styled.li`
       bottom: 10px;
       box-shadow: 1px 1px #e5e5e5;
       position: absolute;
-      left: 80px;
+      left: 90px;
       top: 210px;
       cursor: pointer;
 
@@ -107,7 +107,7 @@ const VideogameCard = ({
 
   return (
     <>
-      <VideogameCardStyle className="card" key={id}>
+      <VideogameCardStyle className="card">
         <div className="card__image">
           <button
             className="delete-button"

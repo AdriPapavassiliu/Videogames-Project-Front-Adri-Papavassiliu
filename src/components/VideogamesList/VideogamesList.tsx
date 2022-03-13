@@ -33,7 +33,7 @@ const VideogamesList = ({ videogames }: VideogameListProps): JSX.Element => {
         <HeadingStyles>{videogames.length} items</HeadingStyles>
         <VideogameListStyles>
           {videogames.map((videogame: Videogame) => {
-            return <VideogameCard videogame={videogame} />;
+            return <VideogameCard videogame={videogame} key={videogame.id} />;
           })}
         </VideogameListStyles>
       </MainStyles>
