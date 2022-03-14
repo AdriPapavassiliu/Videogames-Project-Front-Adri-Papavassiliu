@@ -69,6 +69,7 @@ export const VideogameCardStyle = styled.li`
       margin-bottom: 0;
       font-size: 15px;
       height: 36px;
+      text-align: center;
     }
 
     & .card__platforms {
@@ -139,7 +140,7 @@ const VideogameCard = ({
           <h3 className="card__name">{name}</h3>
           <div className="card__platforms">
             {platforms.map((platform) => (
-              <p>{platform}</p>
+              <p key={platform}>{platform}</p>
             ))}
           </div>
         </section>
