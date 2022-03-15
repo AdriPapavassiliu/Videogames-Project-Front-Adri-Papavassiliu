@@ -11,3 +11,7 @@ export interface LoadVideogamesActionInterface extends Action {
 export interface DeleteVideogameActionInterface extends Action {
   videogameId: string;
 }
+
+export interface AddVideogameActionInterface extends Action {
+  videogame: Videogame;
+}
