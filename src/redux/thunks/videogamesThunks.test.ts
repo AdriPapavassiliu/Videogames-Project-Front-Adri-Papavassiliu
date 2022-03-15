@@ -13,17 +13,17 @@ describe("Given a loadVideogamesThunk function", () => {
 });
 
 describe("Given a deleteVideogameThunk function", () => {
-  // describe("When it is called with '2' as id", () => {
-  //   test("Then it should dispatch a function", async () => {
-  //     const videogameId = "2";
-  //     const dispatch = jest.fn();
+  describe("When it is called with '2' as id", () => {
+    test("Then it should dispatch a function", async () => {
+      const videogameId = "2";
+      const dispatch = jest.fn();
 
-  //     const innerThunk = await deleteVideogameThunk(videogameId);
-  //     await innerThunk(dispatch);
+      const innerThunk = await deleteVideogameThunk(videogameId);
+      await innerThunk(dispatch);
 
-  //     expect(dispatch).toHaveBeenCalled();
-  //   });
-  // });
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
 
   describe("When it is called with '45' as id", () => {
     test("Then it should not dispatch a function", async () => {

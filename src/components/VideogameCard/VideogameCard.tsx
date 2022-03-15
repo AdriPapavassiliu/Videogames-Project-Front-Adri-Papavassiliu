@@ -20,6 +20,7 @@ export const VideogameCardStyle = styled.li`
       width: 130px;
       height: 228px;
       border-radius: 25px;
+      object-fit: cover;
       cursor: pointer;
     }
 
