@@ -1,4 +1,5 @@
 import {
+  AddVideogameActionInterface,
   DeleteVideogameActionInterface,
   LoadVideogamesActionInterface,
 } from "../../interfaces/Action";
@@ -17,4 +18,11 @@ export const deleteVideogameAction = (
 ): DeleteVideogameActionInterface => ({
   type: actionsTypes.deleteVideogame,
   videogameId,
+});
+
+export const addVideogameAction = (
+  videogame: Videogame
+): AddVideogameActionInterface => ({
+  type: actionsTypes.addVideogame,
+  videogame,
 });
