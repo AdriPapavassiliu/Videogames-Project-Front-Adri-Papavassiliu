@@ -126,4 +126,58 @@ describe("Given a videogamesReducer function", () => {
       expect(newState).toEqual(expectedVideogames);
     });
   });
+
+  describe("When it is called with an addVideogame action with 'videogame' and an empty currentVideogames", () => {
+    test("Then it should return the new state with the array of allVideogames", () => {
+      const currentVideogames: Videogame[] = [
+        {
+          name: "GTA V",
+          image: "https://www.xtrafondos.com/descargar.php?id=3228&vertical=1",
+          platforms: ["PS4", "XBOX", "PS5", "PC"],
+          genre: "Action",
+          description:
+            "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
+          year: 2013,
+        },
+      ];
+      const videogame: Videogame = {
+        name: "Apex Legends",
+        image: "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
+        platforms: ["PS4", "XBOX", "PS5", "PC"],
+        genre: "Shooter",
+        description:
+          "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
+        year: 2019,
+      };
+      const allVideogames: Videogame[] = [
+        {
+          name: "GTA V",
+          image: "https://www.xtrafondos.com/descargar.php?id=3228&vertical=1",
+          platforms: ["PS4", "XBOX", "PS5", "PC"],
+          genre: "Action",
+          description:
+            "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
+          year: 2013,
+        },
+        {
+          name: "Apex Legends",
+          image: "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
+          platforms: ["PS4", "XBOX", "PS5", "PC"],
+          genre: "Shooter",
+          description:
+            "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
+          year: 2019,
+        },
+      ];
+
+      const action = {
+        type: actionsTypes.addVideogame,
+        videogame: videogame,
+      };
+
+      const newState = videogamesReducer(currentVideogames, action);
+
+      expect(newState).toEqual(allVideogames);
+    });
+  });
 });
