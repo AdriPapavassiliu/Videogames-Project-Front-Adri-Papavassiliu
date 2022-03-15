@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { deleteVideogameThunk } from "../../redux/thunks/videogamesThunk";
 
 export const VideogameCardStyle = styled.li`
@@ -97,6 +99,7 @@ interface VideogameCardProps {
   videogame: Videogame;
 }
 
+toast.configure();
 const VideogameCard = ({
   videogame: { name, description, genre, image, platforms, id },
 }: VideogameCardProps): JSX.Element => {
@@ -114,6 +117,12 @@ const VideogameCard = ({
             className="delete-button"
             onClick={() => {
               deleteVideogame(id);
+              toast.error("Videogame deleted", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+                autoClose: 500,
+                theme: "dark",
+                hideProgressBar: true,
+              });
             }}
           >
             <FontAwesomeIcon icon={faXmark} />
