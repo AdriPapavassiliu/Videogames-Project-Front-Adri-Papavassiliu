@@ -33,4 +33,25 @@ export const handlers = [
       return res(ctx.status(200), ctx.json({ message: "Videogame deleted" }));
     }
   ),
+  rest.post(
+    `${process.env.REACT_APP_URLAPI}videogames/create`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(201),
+        ctx.json({
+          movie: {
+            name: "Apex Legends",
+            image:
+              "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
+            platforms: ["PS4", "XBOX", "PS5", "PC"],
+            genre: "Shooter",
+            description:
+              "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
+            year: 2019,
+          },
+          message: "Videogame created",
+        })
+      );
+    }
+  ),
 ];
