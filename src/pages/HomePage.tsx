@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "../components/FilterBar/FilterBar";
+import VideogameForm from "../components/VideogameForm/VideogameForm";
 import VideogamesList from "../components/VideogamesList/VideogamesList";
 import { Videogame } from "../interfaces/Videogame";
 import { RootState } from "../redux/store";
@@ -20,6 +21,7 @@ const HomePage = (): JSX.Element => {
     <>
       <FilterBar />
       <VideogamesList videogames={videogamesList} />
+      <VideogameForm />
     </>
   );
 };

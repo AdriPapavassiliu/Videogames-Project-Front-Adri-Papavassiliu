@@ -15,7 +15,7 @@ describe("Given a VideogameList component", () => {
           platforms: ["PS4", "XBOX", "PS5", "PC"],
           genre: "",
           description: "",
-          year: 2019,
+          year: "2019",
         },
         {
           name: "GTA V",
@@ -24,7 +24,7 @@ describe("Given a VideogameList component", () => {
           genre: "Action",
           description:
             "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
-          year: 2013,
+          year: "2013",
         },
       ];
 
