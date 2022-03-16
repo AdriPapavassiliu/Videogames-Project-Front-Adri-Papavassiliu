@@ -16,7 +16,7 @@ describe("Given a loadVideogamesAction function", () => {
           genre: "Shooter",
           description:
             "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-          year: 2019,
+          year: "2019",
         },
         {
           name: "GTA V",
@@ -25,7 +25,7 @@ describe("Given a loadVideogamesAction function", () => {
           genre: "Action",
           description:
             "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
-          year: 2013,
+          year: "2013",
         },
       ];
 
@@ -68,7 +68,7 @@ describe("Given a addVideogameAction function", () => {
         genre: "Shooter",
         description:
           "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-        year: 2019,
+        year: "2019",
         id: "89991292931",
       };
 

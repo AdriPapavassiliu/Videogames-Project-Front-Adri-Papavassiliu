@@ -15,7 +15,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Shooter",
           description:
             "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-          year: 2019,
+          year: "2019",
         },
         {
           name: "GTA V",
@@ -24,7 +24,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Action",
           description:
             "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
-          year: 2013,
+          year: "2013",
         },
       ];
       const action = {
@@ -48,7 +48,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Shooter",
           description:
             "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-          year: 2019,
+          year: "2019",
         },
         {
           name: "GTA V",
@@ -57,7 +57,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Action",
           description:
             "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
-          year: 2013,
+          year: "2013",
         },
       ];
 
@@ -91,7 +91,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Shooter",
           description:
             "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-          year: 2019,
+          year: "2019",
           id: "1",
         },
         {
@@ -100,7 +100,7 @@ describe("Given a videogamesReducer function", () => {
           platforms: [],
           genre: "Delete",
           description: "",
-          year: 2013,
+          year: "2013",
           id: videogameId,
         },
       ];
@@ -112,7 +112,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Shooter",
           description:
             "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-          year: 2019,
+          year: "2019",
           id: "1",
         },
       ];
@@ -137,7 +137,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Action",
           description:
             "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
-          year: 2013,
+          year: "2013",
         },
       ];
       const videogame: Videogame = {
@@ -147,7 +147,7 @@ describe("Given a videogamesReducer function", () => {
         genre: "Shooter",
         description:
           "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-        year: 2019,
+        year: "2019",
       };
       const allVideogames: Videogame[] = [
         {
@@ -157,7 +157,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Action",
           description:
             "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
-          year: 2013,
+          year: "2013",
         },
         {
           name: "Apex Legends",
@@ -166,7 +166,7 @@ describe("Given a videogamesReducer function", () => {
           genre: "Shooter",
           description:
             "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-          year: 2019,
+          year: "2019",
         },
       ];
 

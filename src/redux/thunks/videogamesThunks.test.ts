@@ -52,7 +52,7 @@ describe("Given an addVideogameThunk function", () => {
         genre: "Shooter",
         description:
           "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
-        year: 2019,
+        year: "2019",
       };
       const dispatch = jest.fn();
 

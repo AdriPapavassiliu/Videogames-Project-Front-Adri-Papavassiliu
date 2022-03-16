@@ -4,6 +4,6 @@ export interface Videogame {
   platforms: string[];
   description: string;
   image: string;
-  year?: number;
+  year?: string;
   id?: string;
 }
