@@ -1,7 +1,8 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "@fontsource/work-sans";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
+import AddVideogamePage from "./pages/AddVideogamePage/AddVideogamePage";
 
 function App() {
   return (
@@ -17,10 +18,7 @@ function App() {
           path="/my-videogames"
           element={"placeholder <MyVideogamesPage />"}
         />
-        <Route
-          path="/add-videogame"
-          element={"placeholder <AddVideogamePage>"}
-        />
+        <Route path="/add-videogame" element={<AddVideogamePage />} />
         <Route path="*" element={"<NotFoundPage />"} />
       </Routes>
     </>
