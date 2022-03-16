@@ -17,9 +17,9 @@ describe("Given a VideogameForm component", () => {
         </BrowserRouter>
       );
 
-      const numOfImages = screen.getAllByRole("heading");
+      const numOfHeadings = screen.getAllByRole("heading");
 
-      expect(numOfImages).toHaveLength(expectedNumOfHeadings);
+      expect(numOfHeadings).toHaveLength(expectedNumOfHeadings);
     });
   });
 });
