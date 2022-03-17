@@ -19,6 +19,11 @@ const VideogameFormStyle = styled.div`
     justify-content: center;
     gap: 10px;
 
+    & .disabled {
+      background-color: #c9c6c5;
+      cursor: default;
+    }
+
     & h2 {
       color: #157a6e;
       margin-bottom: 5px;
@@ -186,22 +191,20 @@ const VideogameForm = () => {
           <input type="file" {...register("image", { required: true })} />
         </div>
 
-        {!isInvalid ? (
-          <Button
-            type="form"
-            text="Create Videogame"
-            actionOnClick={() => {
-              toast.success("Videogame created", {
-                position: toast.POSITION.BOTTOM_RIGHT,
-                autoClose: 500,
-                theme: "dark",
-                hideProgressBar: true,
-              });
-            }}
-          ></Button>
-        ) : (
-          <></>
-        )}
+        <Button
+          disabled={isInvalid}
+          type="form"
+          text="Create Videogame"
+          actionOnClick={() => {
+            toast.success("Videogame created", {
+              position: toast.POSITION.BOTTOM_RIGHT,
+              autoClose: 500,
+              theme: "dark",
+              hideProgressBar: true,
+            });
+          }}
+          className={isInvalid ? "disabled" : ""}
+        ></Button>
       </form>
     </VideogameFormStyle>
   );
