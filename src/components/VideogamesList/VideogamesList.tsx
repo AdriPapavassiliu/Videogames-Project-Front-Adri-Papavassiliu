@@ -4,13 +4,18 @@ import VideogameCard from "../VideogameCard/VideogameCard";
 
 export const MainStyles = styled.main`
   padding-top: 16px;
+  margin-bottom: 25px;
 `;
 export const VideogameListStyles = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  margin: 0;
   gap: 25px;
-  padding: 0 12px;
+  padding: 0;
+  margin: 10px 30px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 130px);
+  grid-auto-rows: 350px;
+  grid-gap: 30px;
   justify-content: center;
 `;
 
