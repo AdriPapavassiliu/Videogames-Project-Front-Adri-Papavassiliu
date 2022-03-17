@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { addVideogameThunk } from "../../redux/thunks/videogamesThunk";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Button from "../Button/Button";
 
 const VideogameFormStyle = styled.div`
@@ -73,6 +75,7 @@ interface IFormInput {
   image: string;
 }
 
+toast.configure();
 const VideogameForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -179,7 +182,14 @@ const VideogameForm = () => {
           <Button
             type="form"
             text="Create Videogame"
-            actionOnClick={() => {}}
+            actionOnClick={() => {
+              toast.success("Videogame created", {
+                position: toast.POSITION.BOTTOM_RIGHT,
+                autoClose: 500,
+                theme: "dark",
+                hideProgressBar: true,
+              });
+            }}
           ></Button>
         ) : (
           <></>
