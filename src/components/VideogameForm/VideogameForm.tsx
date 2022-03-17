@@ -109,7 +109,11 @@ const VideogameForm = () => {
     watchRequiredFields[0] === "" ||
     watchRequiredFields[1] === "" ||
     watchRequiredFields[3] === "" ||
-    watchRequiredFields[4] === "" ||
+    watchRequiredFields[3].length !== 4 ||
+    parseInt(watchRequiredFields[3]) < 1980 ||
+    parseInt(watchRequiredFields[3]) > 2025 ||
+    watchRequiredFields[4].length < 3 ||
+    watchRequiredFields[4].length > 300 ||
     watchRequiredFields[5] === "";
 
   return (
@@ -160,7 +164,7 @@ const VideogameForm = () => {
           <input
             type="number"
             placeholder="1999"
-            {...register("year", { required: true })}
+            {...register("year", { required: true, min: 1980, max: 2025 })}
           />
         </div>
 
@@ -169,7 +173,11 @@ const VideogameForm = () => {
           <textarea
             rows={6}
             placeholder="A free-to-play strategic battle royale game ..."
-            {...register("description", { required: true })}
+            {...register("description", {
+              required: true,
+              minLength: 3,
+              maxLength: 300,
+            })}
           />
         </div>
 
