@@ -27,13 +27,27 @@ interface ButtonProps {
   actionOnClick: () => void;
   text: string;
   type: string;
+  disabled?: boolean;
+  className?: string;
 }
 
-const Button = ({ actionOnClick, text, type }: ButtonProps): JSX.Element => {
+const Button = ({
+  actionOnClick,
+  text,
+  type,
+  disabled,
+  className,
+}: ButtonProps): JSX.Element => {
   return (
     <>
       {type === "form" && (
-        <FormButtonStyle onClick={actionOnClick}>{text}</FormButtonStyle>
+        <FormButtonStyle
+          onClick={actionOnClick}
+          disabled={disabled}
+          className={className}
+        >
+          {text}
+        </FormButtonStyle>
       )}
       {type === "filter" && (
         <FilterBarButtonStyle onClick={actionOnClick}>

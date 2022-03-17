@@ -5,6 +5,7 @@ export const FilterBarStyles = styled.ul`
   list-style: none;
   margin: 0;
   padding-top: 80px;
+  margin-left: 5px;
   display: flex;
   flex-direction: row;
   gap: 8px;
