@@ -10,8 +10,8 @@ export const VideogameListStyles = styled.ul`
   flex-wrap: wrap;
   margin: 0;
   gap: 25px;
-  margin-left: 40px;
-  padding: 0;
+  padding: 0 12px;
+  justify-content: center;
 `;
 
 export const HeadingStyles = styled.h3`
