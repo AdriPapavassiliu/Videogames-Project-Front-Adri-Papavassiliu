@@ -105,7 +105,6 @@ const VideogameCard = ({
   videogame: { name, description, genre, image, platforms, id },
 }: VideogameCardProps): JSX.Element => {
   const dispatch = useDispatch();
-
   const deleteVideogame = (videogameId: any): void => {
     dispatch(deleteVideogameThunk(videogameId));
   };
