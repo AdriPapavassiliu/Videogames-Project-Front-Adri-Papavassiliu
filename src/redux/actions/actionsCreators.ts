@@ -2,7 +2,10 @@ import {
   AddVideogameActionInterface,
   DeleteVideogameActionInterface,
   LoadVideogamesActionInterface,
+  LoginUserActionInterface,
+  RegisterUserActionInterface,
 } from "../../interfaces/Action";
+import { RegisterUser, User } from "../../interfaces/User";
 import { Videogame } from "../../interfaces/Videogame";
 import actionsTypes from "./actionsTypes";
 
@@ -25,4 +28,16 @@ export const addVideogameAction = (
 ): AddVideogameActionInterface => ({
   type: actionsTypes.addVideogame,
   videogame,
+});
+
+export const registerUserAction = (
+  user: RegisterUser
+): RegisterUserActionInterface => ({
+  type: actionsTypes.registerUser,
+  user,
+});
+
+export const loginUserAction = (user: User): LoginUserActionInterface => ({
+  type: actionsTypes.loginUser,
+  user,
 });

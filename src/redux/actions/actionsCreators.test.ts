@@ -1,8 +1,11 @@
+import { RegisterUser, User } from "../../interfaces/User";
 import { Videogame } from "../../interfaces/Videogame";
 import {
   addVideogameAction,
   deleteVideogameAction,
   loadVideogamesAction,
+  loginUserAction,
+  registerUserAction,
 } from "./actionsCreators";
 
 describe("Given a loadVideogamesAction function", () => {
@@ -58,7 +61,7 @@ describe("Given a deleteVideogameAction function", () => {
   });
 });
 
-describe("Given a addVideogameAction function", () => {
+describe("Given an addVideogameAction function", () => {
   describe("When it receives a videogame", () => {
     test("Then it should return an object with the action and videogame", () => {
       const videogame: Videogame = {
@@ -78,6 +81,47 @@ describe("Given a addVideogameAction function", () => {
       };
 
       const action = addVideogameAction(videogame);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a registerUserAction function", () => {
+  describe("When it receives a user", () => {
+    test("Then it should return an object with the action and user", () => {
+      const user: RegisterUser = {
+        name: "adri",
+        username: "adri",
+        password: "adri",
+      };
+
+      const expectedAction = {
+        type: "register-user",
+        user,
+      };
+
+      const action = registerUserAction(user);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a loginUserAction function", () => {
+  describe("When it receives a user", () => {
+    test("Then it should return an object with the action and user", () => {
+      const user: User = {
+        username: "adri",
+        password: "adri",
+      };
+
+      const expectedAction = {
+        type: "login-user",
+        user,
+      };
+
+      const action = loginUserAction(user);
 
       expect(action).toEqual(expectedAction);
     });
