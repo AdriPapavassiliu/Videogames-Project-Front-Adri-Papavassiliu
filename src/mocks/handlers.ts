@@ -67,4 +67,15 @@ export const handlers = [
       })
     );
   }),
+  rest.post(`${process.env.REACT_APP_URLAPI}user/login`, (req, res, ctx) => {
+    return res(
+      ctx.status(201),
+      ctx.json({
+        user: {
+          username: "username",
+          password: "password",
+        },
+      })
+    );
+  }),
 ];
