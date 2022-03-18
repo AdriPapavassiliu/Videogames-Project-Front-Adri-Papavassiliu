@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
 import AddVideogamePage from "./pages/AddVideogamePage/AddVideogamePage";
 import RegisterUserPage from "./pages/RegisterUserPage/RegisterUserPage";
+import LoginUserPage from "./pages/LoginUserPage/LoginUserPage";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
-        <Route path="/login" element={"placeholder <LoginPage>"} />
+        <Route path="/login" element={<LoginUserPage />} />
         <Route path="/register" element={<RegisterUserPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/videogame/:id" element={"placeholder <MoviePage />"} />
