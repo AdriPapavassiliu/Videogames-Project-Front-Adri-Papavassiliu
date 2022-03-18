@@ -3,7 +3,7 @@ import "@fontsource/work-sans";
 import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
 import AddVideogamePage from "./pages/AddVideogamePage/AddVideogamePage";
-import RegisterUserPage from "./pages/RegisterPage/RegisterUserPage";
+import RegisterUserPage from "./pages/RegisterUserPage/RegisterUserPage";
 
 function App() {
   return (

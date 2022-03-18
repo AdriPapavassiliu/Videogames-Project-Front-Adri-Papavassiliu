@@ -6,8 +6,8 @@ import AddVideogamePage from "./AddVideogamePage";
 
 describe("Given an AddVideogamePage component", () => {
   describe("When it's rendered", () => {
-    test("Then it should render 4 checkboxes", () => {
-      const expectedNumOfCheckboxes = 4;
+    test("Then it should render 5 checkboxes", () => {
+      const expectedNumOfCheckboxes = 5;
 
       render(
         <BrowserRouter>

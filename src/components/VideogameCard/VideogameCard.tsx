@@ -84,7 +84,7 @@ export const VideogameCardStyle = styled.li`
         margin: 5px;
         margin-right: 1px;
         margin-bottom: 0;
-        width: 30px;
+        width: 35px;
         background-color: #e5e5e5;
         padding: 6px;
         border-radius: 15px;
