@@ -161,6 +161,14 @@ const VideogameForm = () => {
               PC
               <input type="checkbox" value="PC" {...register("platforms")} />
             </label>
+            <label>
+              Switch
+              <input
+                type="checkbox"
+                value="Switch"
+                {...register("platforms")}
+              />
+            </label>
           </div>
         </div>
 
