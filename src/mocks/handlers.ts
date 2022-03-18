@@ -54,4 +54,17 @@ export const handlers = [
       );
     }
   ),
+  rest.post(`${process.env.REACT_APP_URLAPI}user/register`, (req, res, ctx) => {
+    return res(
+      ctx.status(201),
+      ctx.json({
+        user: {
+          name: "name",
+          username: "username",
+          password: "password",
+        },
+        message: "User created",
+      })
+    );
+  }),
 ];
