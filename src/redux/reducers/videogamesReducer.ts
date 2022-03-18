@@ -9,11 +9,7 @@ import {
 
 const videogamesReducer = (
   currentVideogames: Videogame[] = [],
-  action:
-    | Action
-    | LoadVideogamesActionInterface
-    | AddVideogameActionInterface
-    | DeleteVideogameActionInterface = { type: "", videogames: [] }
+  action: Action = { type: "" }
 ) => {
   let newVideogames: Videogame[];
 
