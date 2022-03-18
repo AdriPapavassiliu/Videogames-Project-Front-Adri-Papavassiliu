@@ -62,7 +62,7 @@ const RegisterForm = () => {
   });
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     dispatch(registerUserThunk(data));
-    navigate("/user/login");
+    navigate("/login");
   };
 
   const watchRequiredFields = watch(["name", "username", "password"]);
