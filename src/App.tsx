@@ -3,6 +3,7 @@ import "@fontsource/work-sans";
 import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
 import AddVideogamePage from "./pages/AddVideogamePage/AddVideogamePage";
+import RegisterUserPage from "./pages/RegisterPage/RegisterUserPage";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/login" element={"placeholder <LoginPage>"} />
-        <Route path="/register" element={"placeholder <RegisterPage>"} />
+        <Route path="/register" element={<RegisterUserPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/videogame/:id" element={"placeholder <MoviePage />"} />
         <Route
