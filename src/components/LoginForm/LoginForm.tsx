@@ -1,8 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
-import { registerUserThunk } from "../../redux/thunks/usersThunks";
+import { Link } from "react-router-dom";
+import { loginUserThunk } from "../../redux/thunks/usersThunks";
 import Button from "../Button/Button";
 
 const RegiaterFormStyle = styled.div`
@@ -50,44 +50,32 @@ const RegiaterFormStyle = styled.div`
 `;
 
 interface IFormInput {
-  name: string;
   username: string;
   password: string;
 }
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { register, watch, handleSubmit } = useForm<IFormInput>({
     defaultValues: {
-      name: "",
       username: "",
       password: "",
     },
   });
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    dispatch(registerUserThunk(data));
-    navigate("/login");
+    dispatch(loginUserThunk(data));
+    // navigate("/login");
   };
 
-  const watchRequiredFields = watch(["name", "username", "password"]);
+  const watchRequiredFields = watch(["username", "password"]);
 
   const isInvalid =
-    watchRequiredFields[0] === "" ||
-    watchRequiredFields[1] === "" ||
-    watchRequiredFields[2] === "";
+    watchRequiredFields[0] === "" || watchRequiredFields[1] === "";
   return (
     <RegiaterFormStyle>
       <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
-        <h2>Register</h2>
-        <div>
-          <label>Name</label>
-          <input
-            type="text"
-            placeholder="Please insert your name"
-            {...register("name", { required: true })}
-          />
-        </div>
+        <h2>Login</h2>
 
         <div>
           <label>Username</label>
@@ -110,15 +98,15 @@ const RegisterForm = () => {
         <Button
           disabled={isInvalid}
           type="form"
-          text="Sign up"
+          text="Log in"
           actionOnClick={() => {}}
           className={isInvalid ? "disabled" : ""}
         ></Button>
 
         <p>
-          Already have an account?{" "}
-          <Link to={"/login"} className="link">
-            Log in
+          Need an account?{" "}
+          <Link to={"/register"} className="link">
+            Sign up
           </Link>
         </p>
       </form>
@@ -126,4 +114,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

@@ -1,7 +1,13 @@
 import { ThunkDispatch } from "redux-thunk";
-import { RegisterUserActionInterface } from "../../interfaces/Action";
-import { RegisterUser } from "../../interfaces/User";
-import { registerUserAction } from "../actions/actionsCreators";
+import {
+  LoginUserActionInterface,
+  RegisterUserActionInterface,
+} from "../../interfaces/Action";
+import { RegisterUser, User } from "../../interfaces/User";
+import {
+  loginUserAction,
+  registerUserAction,
+} from "../actions/actionsCreators";
 import { RootState } from "../store";
 
 export const registerUserThunk =
@@ -21,4 +27,23 @@ export const registerUserThunk =
     );
     const newUser = await response.json();
     dispatch(registerUserAction(newUser));
+  };
+
+export const loginUserThunk =
+  (user: User) =>
+  async (
+    dispatch: ThunkDispatch<RootState, void, LoginUserActionInterface>
+  ) => {
+    const response = await fetch(`${process.env.REACT_APP_URLAPI}user/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    const tokenResponse = await response.json();
+    localStorage.setItem("userToken", tokenResponse.token);
+
+    dispatch(loginUserAction(user));
   };
