@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "../../components/FilterBar/FilterBar";
+import RegisterForm from "../../components/RegisterForm/RegisterForm";
 import VideogamesList from "../../components/VideogamesList/VideogamesList";
 import { Videogame } from "../../interfaces/Videogame";
 import { RootState } from "../../redux/store";
