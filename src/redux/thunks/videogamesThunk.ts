@@ -21,10 +21,14 @@ export const loadVideogamesThunk = async (
 export const deleteVideogameThunk =
   (videogameId: string) =>
   async (dispatch: ThunkDispatch<void, unknown, AnyAction>) => {
+    const userToken = localStorage.getItem("userToken");
     const response = await fetch(
       `${process.env.REACT_APP_URLAPI}videogames/${videogameId}`,
       {
         method: "DELETE",
+        headers: {
+          authorization: `Bearer ${userToken}`,
+        },
       }
     );
     if (response.ok) {
@@ -37,6 +41,7 @@ export const addVideogameThunk =
   async (
     dispatch: ThunkDispatch<RootState, void, AddVideogameActionInterface>
   ): Promise<void> => {
+    const userToken = localStorage.getItem("userToken");
     const data = new FormData();
     const platformsToString = videogame.platforms.join(",");
     const yearToString = videogame.year?.toString();
@@ -51,6 +56,9 @@ export const addVideogameThunk =
       `${process.env.REACT_APP_URLAPI}videogames/create`,
       {
         method: "POST",
+        headers: {
+          authorization: `Bearer ${userToken}`,
+        },
         body: data,
       }
     );
