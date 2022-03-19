@@ -1,8 +1,10 @@
+import { toast } from "react-toastify";
 import { ThunkDispatch } from "redux-thunk";
 import {
   LoginUserActionInterface,
   RegisterUserActionInterface,
 } from "../../interfaces/Action";
+import "react-toastify/dist/ReactToastify.css";
 import { RegisterUser, User } from "../../interfaces/User";
 import {
   loginUserAction,
@@ -43,7 +45,15 @@ export const loginUserThunk =
     });
 
     const tokenResponse = await response.json();
-    localStorage.setItem("userToken", tokenResponse.token);
-
-    dispatch(loginUserAction(user));
+    if (!tokenResponse.error) {
+      localStorage.setItem("userToken", tokenResponse.token);
+      dispatch(loginUserAction(user));
+    } else {
+      toast.error(tokenResponse.error, {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        autoClose: 500,
+        theme: "colored",
+        hideProgressBar: true,
+      });
+    }
   };

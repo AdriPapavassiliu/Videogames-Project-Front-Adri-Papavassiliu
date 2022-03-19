@@ -1,9 +1,12 @@
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginUserThunk } from "../../redux/thunks/usersThunks";
 import Button from "../Button/Button";
+import { RootState } from "../../redux/store";
+import { User } from "../../interfaces/User";
+import { useEffect } from "react";
 
 const RegiaterFormStyle = styled.div`
   display: flex;
@@ -55,17 +58,24 @@ interface IFormInput {
 }
 
 const LoginForm = () => {
+  const user = useSelector((state: RootState) => state.usersReducer);
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const { register, watch, handleSubmit } = useForm<IFormInput>({
     defaultValues: {
       username: "",
       password: "",
     },
   });
+
+  useEffect(() => {
+    if ((user as User).username) {
+      navigate("/home");
+    }
+  });
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     dispatch(loginUserThunk(data));
-    // navigate("/login");
   };
 
   const watchRequiredFields = watch(["username", "password"]);
