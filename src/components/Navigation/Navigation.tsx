@@ -7,6 +7,9 @@ import {
 import styled from "styled-components";
 import "@fontsource/montserrat-alternates";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { User } from "../../interfaces/User";
 
 export const Navbar = styled.nav`
   background-color: #157a6e;
@@ -51,12 +54,13 @@ export const Navbar = styled.nav`
 `;
 
 const Navigation = (): JSX.Element => {
+  const user = useSelector((state: RootState) => state.usersReducer);
   return (
     <>
       <Navbar className="nav-bar">
         <ul>
           <li className="account">
-            <Link to={"/login"}>
+            <Link to={(user as User).username ? "/logout" : "/login"}>
               <FontAwesomeIcon icon={faUser} />
             </Link>
           </li>
@@ -68,12 +72,12 @@ const Navigation = (): JSX.Element => {
             </Link>
           </li>
           <li>
-            <Link to={"/my-videogames"}>
+            <Link to={(user as User).username ? "/my-videogames" : "/login"}>
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
           <li>
-            <Link to={"/add-videogame"}>
+            <Link to={(user as User).username ? "/add-videogame" : "/login"}>
               <FontAwesomeIcon icon={faSquarePlus} />
             </Link>
           </li>

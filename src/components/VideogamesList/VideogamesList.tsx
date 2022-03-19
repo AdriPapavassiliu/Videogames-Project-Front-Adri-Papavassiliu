@@ -1,5 +1,7 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { Videogame } from "../../interfaces/Videogame";
+import { RootState } from "../../redux/store";
 import VideogameCard from "../VideogameCard/VideogameCard";
 
 export const MainStyles = styled.main`
@@ -32,13 +34,20 @@ interface VideogameListProps {
 }
 
 const VideogamesList = ({ videogames }: VideogameListProps): JSX.Element => {
+  const user = useSelector((state: RootState) => state.usersReducer);
   return (
     <>
       <MainStyles>
         <HeadingStyles>{videogames.length} items</HeadingStyles>
         <VideogameListStyles>
           {videogames.map((videogame: Videogame) => {
-            return <VideogameCard videogame={videogame} key={videogame.id} />;
+            return (
+              <VideogameCard
+                user={user}
+                videogame={videogame}
+                key={videogame.id}
+              />
+            );
           })}
         </VideogameListStyles>
       </MainStyles>

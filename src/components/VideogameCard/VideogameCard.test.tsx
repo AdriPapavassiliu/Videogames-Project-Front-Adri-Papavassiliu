@@ -14,9 +14,13 @@ describe("Given a VideogameCard component", () => {
         description: "",
       };
 
+      const user = {
+        username: "jdnfsjd",
+      };
+
       render(
         <Provider store={store}>
-          <VideogameCard videogame={videogame} />
+          <VideogameCard videogame={videogame} user={user} />
         </Provider>
       );
 
