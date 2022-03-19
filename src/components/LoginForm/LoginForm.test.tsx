@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../../redux/store";
 import LoginForm from "./LoginForm";
 
-describe("Given a VideogameForm component", () => {
+describe("Given a LoginForm component", () => {
   describe("When it's rendered", () => {
     test("Then it should render a button with 'Log in' as accessible name", () => {
       render(
