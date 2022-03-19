@@ -112,6 +112,7 @@ const VideogameForm = () => {
 
   const isInvalid =
     watchRequiredFields[0] === "" ||
+    watchRequiredFields[0].length > 30 ||
     watchRequiredFields[1] === "" ||
     watchRequiredFields[3] === "" ||
     watchRequiredFields[3].length !== 4 ||
@@ -123,14 +124,14 @@ const VideogameForm = () => {
 
   return (
     <VideogameFormStyle>
-      <form onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
         <h2>Create Videogame</h2>
         <div className="form--name">
           <label>Name</label>
           <input
             type="text"
             placeholder="Videogame name"
-            {...register("name", { required: true })}
+            {...register("name", { required: true, maxLength: 30 })}
           />
         </div>
         <div className="form--genre">
@@ -138,7 +139,7 @@ const VideogameForm = () => {
           <input
             type="text"
             placeholder="Shooter, RPG, Action"
-            {...register("genre", { required: true })}
+            {...register("genre", { required: true, maxLength: 40 })}
           />
         </div>
 
@@ -177,7 +178,13 @@ const VideogameForm = () => {
           <input
             type="number"
             placeholder="1999"
-            {...register("year", { required: true, min: 1980, max: 2025 })}
+            {...register("year", {
+              required: true,
+              min: 1980,
+              max: 2025,
+              maxLength: 4,
+              minLength: 4,
+            })}
           />
         </div>
 
