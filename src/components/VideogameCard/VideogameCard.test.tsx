@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import { store } from "../../redux/store";
 import VideogameCard from "./VideogameCard";
 
@@ -19,9 +20,11 @@ describe("Given a VideogameCard component", () => {
       };
 
       render(
-        <Provider store={store}>
-          <VideogameCard videogame={videogame} user={user} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <VideogameCard videogame={videogame} user={user} />
+          </Provider>
+        </BrowserRouter>
       );
 
       const image = screen.getByRole("img");

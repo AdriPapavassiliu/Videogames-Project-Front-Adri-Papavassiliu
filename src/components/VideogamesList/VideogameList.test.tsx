@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import { store } from "../../redux/store";
 import VideogamesList from "./VideogamesList";
 
@@ -29,9 +30,11 @@ describe("Given a VideogameList component", () => {
       ];
 
       render(
-        <Provider store={store}>
-          <VideogamesList videogames={videogames} />
-        </Provider>
+        <BrowserRouter>
+          <Provider store={store}>
+            <VideogamesList videogames={videogames} />
+          </Provider>
+        </BrowserRouter>
       );
 
       const numOfImages = screen.getAllByRole("img");
