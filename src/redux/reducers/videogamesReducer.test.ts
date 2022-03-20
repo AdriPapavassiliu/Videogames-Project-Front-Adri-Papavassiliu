@@ -39,7 +39,7 @@ describe("Given a videogamesReducer function", () => {
   });
 
   describe("When it's called with an nonexistent action", () => {
-    test("Then it should return a new state and has to be the same as the initial state)", () => {
+    test("Then it should return a new state and has to be the same as the initial state", () => {
       const currentVideogames: Videogame[] = [
         {
           name: "Apex Legends",
