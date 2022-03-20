@@ -6,6 +6,7 @@ import {
   addVideogameAction,
   deleteVideogameAction,
   loadVideogamesAction,
+  updateVideogameAction,
 } from "../actions/actionsCreators";
 import { RootState } from "../store";
 
@@ -67,5 +68,39 @@ export const addVideogameThunk =
 
     if (responseVideogame.message === "Videogame created") {
       dispatch(addVideogameAction(responseVideogame.videogame));
+    }
+  };
+
+export const updatePlayerThunk =
+  (videogame: Videogame, id: any) =>
+  async (
+    dispatch: ThunkDispatch<RootState, void, AddVideogameActionInterface>
+  ): Promise<void> => {
+    const userToken = localStorage.getItem("userToken");
+    const platformsToString = videogame.platforms.join(",");
+    const yearToString = videogame.year?.toString();
+    const data = new FormData();
+    data.append("name", videogame.name);
+    data.append("genre", videogame.genre);
+    data.append("platforms", platformsToString);
+    data.append("description", videogame.description);
+    data.append("year", yearToString as string);
+    data.append("image", videogame.image);
+
+    const response = await fetch(
+      `${process.env.REACT_APP_URLAPI}videogames/update`,
+      {
+        method: "PUT",
+        headers: {
+          authorization: `Bearer ${userToken}`,
+        },
+        body: data,
+      }
+    );
+
+    const responseVideogame = await response.json();
+
+    if (responseVideogame.message === "Videogame updated") {
+      dispatch(updateVideogameAction(responseVideogame.videogame));
     }
   };
