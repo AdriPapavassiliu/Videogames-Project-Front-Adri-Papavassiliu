@@ -180,4 +180,40 @@ describe("Given a videogamesReducer function", () => {
       expect(newState).toEqual(allVideogames);
     });
   });
+
+  describe("When it is called with an updateVideogame action with 'currentVideogames' and the updated videogame", () => {
+    test("Then it should the new videogame", () => {
+      const currentVideogames: Videogame[] = [
+        {
+          name: "GTA V",
+          image: "https://www.xtrafondos.com/descargar.php?id=3228&vertical=1",
+          platforms: ["PS4", "XBOX", "PS5", "PC"],
+          genre: "Action",
+          description:
+            "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
+          year: "2013",
+          id: "1",
+        },
+      ];
+      const updatedVideogame: Videogame = {
+        name: "GTA V",
+        image: "https://www.xtrafondos.com/descargar.php?id=3228&vertical=1",
+        platforms: ["PS4", "XBOX", "PS5", "PC"],
+        genre: "Adventures",
+        description:
+          "An action-adventure game played from either a third-person or first-person perspective. Players complete missions—linear scenarios with set objectives—to progress through the story. Outside of the missions, players may freely roam the open world.",
+        year: "2013",
+        id: "1",
+      };
+
+      const action = {
+        type: "update-videogame",
+        videogame: updatedVideogame,
+      };
+
+      const newPlayers = videogamesReducer(currentVideogames, action);
+
+      expect(newPlayers).toContain(updatedVideogame);
+    });
+  });
 });
