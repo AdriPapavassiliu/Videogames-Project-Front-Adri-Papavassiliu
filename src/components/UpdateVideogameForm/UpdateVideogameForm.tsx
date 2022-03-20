@@ -1,75 +1,17 @@
 import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
-import { addVideogameThunk } from "../../redux/thunks/videogamesThunk";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  loadVideogamesThunk,
+  updateVideogameThunk,
+} from "../../redux/thunks/videogamesThunk";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../Button/Button";
-
-export const VideogameFormStyle = styled.div`
-  display: flex;
-  justify-content: center;
-  padding-top: 65px;
-  & form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    & .disabled {
-      background-color: #c9c6c5;
-      cursor: default;
-    }
-
-    & h2 {
-      color: #157a6e;
-      margin-bottom: 5px;
-    }
-
-    & div {
-      width: 316px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: stretch;
-
-      & label {
-        margin-bottom: 10px;
-      }
-
-      & input {
-        height: 30px;
-      }
-    }
-
-    & .form--platforms {
-      & label {
-        display: flex;
-        align-items: center;
-        margin: 0;
-        width: fit-content;
-
-        & input {
-          border-radius: 50%;
-          height: fit-content;
-        }
-      }
-
-      & div {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-      }
-
-      & .PS4 {
-        margin-top: 5px;
-      }
-    }
-  }
-`;
+import { VideogameFormStyle } from "../VideogameForm/VideogameForm";
+import { RootState } from "../../redux/store";
+import { Videogame } from "../../interfaces/Videogame";
 
 interface IFormInput {
   name: string;
@@ -84,21 +26,30 @@ toast.configure();
 const VideogameForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { videogameId } = useParams();
+  const videogames = useSelector((state: RootState) => state.videogamesReducer);
+  React.useEffect(() => {
+    dispatch(loadVideogamesThunk);
+  }, [dispatch]);
+
+  const videogameToUpdate = videogames.find(
+    (videogame: Videogame) => videogame.id === videogameId
+  );
   const { register, watch, handleSubmit } = useForm<IFormInput>({
     defaultValues: {
-      name: "",
-      genre: "",
-      platforms: [],
-      year: "",
-      description: "",
-      image: "",
+      name: (videogameToUpdate as Videogame).name,
+      genre: (videogameToUpdate as Videogame).genre,
+      platforms: (videogameToUpdate as Videogame).platforms,
+      year: (videogameToUpdate as Videogame).year,
+      description: (videogameToUpdate as Videogame).description,
+      image: (videogameToUpdate as Videogame).image,
     },
   });
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     if (data.image) {
       data.image = data.image[0];
     }
-    dispatch(addVideogameThunk(data));
+    dispatch(updateVideogameThunk(data, videogameId));
     navigate("/");
   };
   const watchRequiredFields = watch([
