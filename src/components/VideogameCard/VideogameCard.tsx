@@ -80,6 +80,8 @@ export const VideogameCardStyle = styled.li`
       flex-wrap: wrap;
       display: flex;
       justify-content: center;
+      height: 50px;
+      margin-bottom: 30px;
 
       & p {
         margin: 5px;
@@ -93,6 +95,7 @@ export const VideogameCardStyle = styled.li`
         align-items: center;
         justify-content: center;
         font-size: 11px;
+        height: min-content;
       }
     }
   }

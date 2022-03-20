@@ -41,3 +41,10 @@ export const loginUserAction = (user: User): LoginUserActionInterface => ({
   type: actionsTypes.loginUser,
   user,
 });
+
+export const updateVideogameAction = (
+  videogame: Videogame
+): AddVideogameActionInterface => ({
+  type: actionsTypes.updateVideogame,
+  videogame,
+});
