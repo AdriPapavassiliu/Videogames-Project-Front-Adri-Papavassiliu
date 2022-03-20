@@ -71,7 +71,7 @@ export const addVideogameThunk =
     }
   };
 
-export const updatePlayerThunk =
+export const updateVideogameThunk =
   (videogame: Videogame, id: any) =>
   async (
     dispatch: ThunkDispatch<RootState, void, AddVideogameActionInterface>
