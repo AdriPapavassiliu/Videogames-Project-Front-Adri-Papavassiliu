@@ -5,6 +5,7 @@ const actionsTypes = {
   registerUser: "register-user",
   loginUser: "login-user",
   updateVideogame: "update-videogame",
+  loadVideogame: "load-videogame",
 };
 
 export default actionsTypes;

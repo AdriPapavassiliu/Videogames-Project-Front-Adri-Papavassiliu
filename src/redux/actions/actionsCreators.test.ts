@@ -3,6 +3,7 @@ import { Videogame } from "../../interfaces/Videogame";
 import {
   addVideogameAction,
   deleteVideogameAction,
+  loadVideogameAction,
   loadVideogamesAction,
   loginUserAction,
   registerUserAction,
@@ -129,7 +130,7 @@ describe("Given a loginUserAction function", () => {
   });
 });
 
-describe("Given a update-player action", () => {
+describe("Given an update-player action", () => {
   describe("When it receives a videogame", () => {
     test("Then it should return an object with the action and videogame", () => {
       const videogame: Videogame = {
@@ -150,6 +151,31 @@ describe("Given a update-player action", () => {
       const action = updateVideogameAction(videogame);
 
       expect(action).toEqual(expectedACtion);
+    });
+  });
+});
+
+describe("Given a load-videogame action", () => {
+  describe("When it receives a videogame", () => {
+    test("Then it should return the action and the videogame", () => {
+      const videogame: Videogame = {
+        name: "Apex Legends",
+        image: "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
+        platforms: ["PS4", "XBOX", "PS5", "PC"],
+        genre: "Shooter",
+        description:
+          "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
+        year: "2019",
+        id: "89991292931",
+      };
+      const expectedAction = {
+        type: "load-videogame",
+        videogame,
+      };
+
+      const action = loadVideogameAction(videogame);
+
+      expect(action).toEqual(expectedAction);
     });
   });
 });

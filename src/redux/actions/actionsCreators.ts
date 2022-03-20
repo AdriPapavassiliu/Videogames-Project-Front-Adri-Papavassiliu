@@ -48,3 +48,10 @@ export const updateVideogameAction = (
   type: actionsTypes.updateVideogame,
   videogame,
 });
+
+export const loadVideogameAction = (
+  videogame: Videogame
+): AddVideogameActionInterface => ({
+  type: actionsTypes.loadVideogame,
+  videogame,
+});
