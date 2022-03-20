@@ -5,8 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { deleteVideogameThunk } from "../../redux/thunks/videogamesThunk";
+import {
+  deleteVideogameThunk,
+  loadVideogameThunk,
+} from "../../redux/thunks/videogamesThunk";
 import { User } from "../../interfaces/User";
+import { useNavigate } from "react-router-dom";
 
 export const VideogameCardStyle = styled.li`
   display: flex;
@@ -111,8 +115,13 @@ const VideogameCard = ({
   user,
 }: VideogameCardProps): JSX.Element => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const deleteVideogame = (videogameId: any): void => {
     dispatch(deleteVideogameThunk(videogameId));
+  };
+  const videogameDetail = (videogameId: any): void => {
+    dispatch(loadVideogameThunk(videogameId));
+    navigate(`/videogames/${videogameId}`);
   };
 
   return (
@@ -138,7 +147,11 @@ const VideogameCard = ({
             <></>
           )}
 
-          <img src={image} alt={`${name} card`}></img>
+          <img
+            src={image}
+            alt={`${name} card`}
+            onClick={() => videogameDetail(id)}
+          ></img>
           {(user as User).username ? (
             <button>
               <svg
