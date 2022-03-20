@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation/Navigation";
 import AddVideogamePage from "./pages/AddVideogamePage/AddVideogamePage";
 import RegisterUserPage from "./pages/RegisterUserPage/RegisterUserPage";
 import LoginUserPage from "./pages/LoginUserPage/LoginUserPage";
+import VideogameDetailPage from "./pages/VideogameDetailPage/VideogameDetailPage";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/login" element={<LoginUserPage />} />
         <Route path="/register" element={<RegisterUserPage />} />
         <Route path="/home" element={<HomePage />} />
-        <Route path="/videogame/:id" element={"placeholder <MoviePage />"} />
+        <Route path="/videogames/:id" element={<VideogameDetailPage />} />
         <Route
           path="/my-videogames"
           element={"placeholder <MyVideogamesPage />"}
