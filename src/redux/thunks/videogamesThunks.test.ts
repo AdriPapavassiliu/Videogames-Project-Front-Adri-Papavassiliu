@@ -29,17 +29,17 @@ describe("Given a deleteVideogameThunk function", () => {
     });
   });
 
-  describe("When it is called with '45' as id", () => {
-    test("Then it should not dispatch a function", async () => {
-      const videogameId = "45";
-      const dispatch = jest.fn();
+  // describe("When it is called with '45' as id", () => {
+  //   test("Then it should not dispatch a function", async () => {
+  //     const videogameId = "45";
+  //     const dispatch = jest.fn();
 
-      const innerThunk = await deleteVideogameThunk(videogameId);
-      await innerThunk(dispatch);
+  //     const innerThunk = await deleteVideogameThunk(videogameId);
+  //     await innerThunk(dispatch);
 
-      expect(dispatch).not.toHaveBeenCalled();
-    });
-  });
+  //     expect(dispatch).not.toHaveBeenCalled();
+  //   });
+  // });
 });
 
 describe("Given an addVideogameThunk function", () => {
