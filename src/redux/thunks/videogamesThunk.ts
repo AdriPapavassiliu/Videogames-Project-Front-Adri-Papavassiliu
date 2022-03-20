@@ -5,6 +5,7 @@ import { Videogame } from "../../interfaces/Videogame";
 import {
   addVideogameAction,
   deleteVideogameAction,
+  loadVideogameAction,
   loadVideogamesAction,
   updateVideogameAction,
 } from "../actions/actionsCreators";
@@ -103,4 +104,17 @@ export const updateVideogameThunk =
     if (responseVideogame.message === "Videogame updated") {
       dispatch(updateVideogameAction(responseVideogame.videogame));
     }
+  };
+
+export const loadVideogameThunk =
+  (videogameId: string) =>
+  async (
+    dispatch: ThunkDispatch<void, unknown, AddVideogameActionInterface>
+  ) => {
+    const response = await fetch(
+      `${process.env.REACT_APP_URLAPI}videogames/${videogameId}`
+    );
+    const videogameDetail = await response.json();
+
+    dispatch(loadVideogameAction(videogameDetail));
   };
