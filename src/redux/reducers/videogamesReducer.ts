@@ -30,6 +30,13 @@ const videogamesReducer = (
         (action as AddVideogameActionInterface).videogame,
       ];
       break;
+    case actionsTypes.updateVideogame:
+      newVideogames = currentVideogames.map((videogame) =>
+        videogame.id === (action as AddVideogameActionInterface).videogame.id
+          ? (action as AddVideogameActionInterface).videogame
+          : videogame
+      );
+      break;
     default:
       newVideogames = currentVideogames;
       break;
