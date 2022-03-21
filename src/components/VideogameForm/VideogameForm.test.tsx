@@ -12,7 +12,7 @@ describe("Given a VideogameForm component", () => {
       render(
         <BrowserRouter>
           <Provider store={store}>
-            <VideogameForm />
+            <VideogameForm thunk={() => {}} />
           </Provider>
         </BrowserRouter>
       );

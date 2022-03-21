@@ -180,6 +180,9 @@ const VideogameDetail = ({
     navigate("/home");
   };
 
+  const updateVideogame = () => {
+    navigate(`/update-videogame/${id}`);
+  };
   return (
     <>
       <VideogameDetailStyle className="card">
@@ -245,11 +248,15 @@ const VideogameDetail = ({
             </h4>
             <p className="card__description">{description}</p>
           </section>
-          <Button
-            type="form"
-            text="Edit videogame"
-            actionOnClick={() => {}}
-          ></Button>
+          {(user as User).username ? (
+            <Button
+              type="form"
+              text="Edit videogame"
+              actionOnClick={() => updateVideogame()}
+            ></Button>
+          ) : (
+            <></>
+          )}
         </div>
       </VideogameDetailStyle>
     </>
