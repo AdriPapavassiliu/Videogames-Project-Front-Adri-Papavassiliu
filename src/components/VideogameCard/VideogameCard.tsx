@@ -5,10 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  deleteVideogameThunk,
-  loadVideogameThunk,
-} from "../../redux/thunks/videogamesThunk";
+import { deleteVideogameThunk } from "../../redux/thunks/videogamesThunk";
 import { User } from "../../interfaces/User";
 import { useNavigate } from "react-router-dom";
 
@@ -120,7 +117,6 @@ const VideogameCard = ({
     dispatch(deleteVideogameThunk(videogameId));
   };
   const videogameDetail = (videogameId: any): void => {
-    dispatch(loadVideogameThunk(videogameId));
     navigate(`/videogames/${videogameId}`);
   };
 

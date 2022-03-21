@@ -5,28 +5,51 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {
-  deleteVideogameThunk,
-  loadVideogameThunk,
-} from "../../redux/thunks/videogamesThunk";
+import { deleteVideogameThunk } from "../../redux/thunks/videogamesThunk";
 import { User } from "../../interfaces/User";
 import { useNavigate } from "react-router-dom";
+import Button from "../Button/Button";
 
 export const VideogameDetailStyle = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80vw;
+  width: 90vw;
   align-items: center;
-  position: relative;
   padding-top: 90px;
+  margin-bottom: 20px;
+  @media (min-width: 800px) {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+  }
+
+  & .card__properties {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media (min-width: 800px) {
+      margin-left: 30px;
+      align-items: flex-start;
+      width: 50vw;
+    }
+
+    & button {
+      border-radius: 10px;
+    }
+  }
 
   & .card__image {
+    position: relative;
     & img {
       width: 156px;
       height: 274px;
       border-radius: 25px;
       object-fit: cover;
       cursor: pointer;
+      @media (min-width: 800px) {
+        width: 225px;
+        height: 395px;
+      }
     }
 
     & button :hover {
@@ -35,8 +58,8 @@ export const VideogameDetailStyle = styled.div`
 
     & button {
       border-radius: 50%;
-      width: 31px;
-      height: 31px;
+      width: 32px;
+      height: 32px;
       color: #000000;
       background-color: #fff;
       border: none;
@@ -44,9 +67,13 @@ export const VideogameDetailStyle = styled.div`
       bottom: 10px;
       box-shadow: 1px 1px #e5e5e5;
       position: absolute;
-      left: 90px;
-      top: 210px;
+      left: 110px;
+      top: 254px;
       cursor: pointer;
+      @media (min-width: 800px) {
+        left: 170px;
+        top: 377px;
+      }
 
       & svg {
         width: 22px;
@@ -55,13 +82,31 @@ export const VideogameDetailStyle = styled.div`
     }
 
     & .delete-button {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
       color: #fff;
       background-color: #c70000;
-      left: 110px;
-      top: -5px;
+      left: 132px;
+      top: -8px;
       box-shadow: none;
+      @media (min-width: 800px) {
+        left: 204px;
+        top: -9px;
+      }
+    }
+  }
+
+  & h3 {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    height: 36px;
+    text-align: center;
+    @media (min-width: 800px) {
+      width: max-content;
+      padding-left: 15px;
     }
   }
 
@@ -69,40 +114,51 @@ export const VideogameDetailStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 15px;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    @media (min-width: 800px) {
+      font-size: 20px;
+      align-items: flex-start;
+    }
 
-    & h3 {
-      display: flex;
-      align-items: center;
-      margin-top: 0;
-      margin-bottom: 0;
-      font-size: 15px;
-      height: 36px;
-      text-align: center;
+    & .colon {
+      display: none;
+      @media (min-width: 800px) {
+        display: contents;
+      }
     }
 
     & p {
-      margin: 0 0 5px;
+      margin: 8px 0;
+    }
+
+    & h4 {
+      margin: 0;
+      font-weight: 600;
     }
 
     & .card__platforms {
       flex-wrap: wrap;
       display: flex;
       justify-content: center;
-      height: 50px;
+      gap: 10px;
+      @media (min-width: 800px) {
+        gap: 20px;
+      }
 
       & p {
-        margin: 5px;
-        margin-right: 1px;
-        margin-bottom: 0;
-        width: 35px;
-        background-color: #e5e5e5;
-        padding: 6px;
-        border-radius: 15px;
+        margin: 8px 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 11px;
+        font-size: 15px;
         height: min-content;
+        @media (min-width: 800px) {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -122,10 +178,6 @@ const VideogameDetail = ({
   const deleteVideogame = (videogameId: any): void => {
     dispatch(deleteVideogameThunk(videogameId));
     navigate("/home");
-  };
-  const videogameDetail = (videogameId: any): void => {
-    dispatch(loadVideogameThunk(videogameId));
-    navigate(`/videogames/${videogameId}`);
   };
 
   return (
@@ -151,11 +203,7 @@ const VideogameDetail = ({
             <></>
           )}
 
-          <img
-            src={image}
-            alt={`${name} card`}
-            onClick={() => videogameDetail(id)}
-          ></img>
+          <img src={image} alt={`${name} card`} onClick={() => {}}></img>
           {(user as User).username ? (
             <button>
               <svg
@@ -177,21 +225,32 @@ const VideogameDetail = ({
             <></>
           )}
         </div>
-        <section>
+        <div className="card__properties">
           <h3 className="card__name">{name}</h3>
-          <p>
-            Genre <span className="line-break"></span>
-            {genre}
-          </p>
-          <div className="card__platforms">
-            Platforms:
-            {platforms.map((platform) => (
-              <p key={platform}>{platform}</p>
-            ))}
-          </div>
-          <p className="card__description">Description :</p>
-          <p className="card__description">{description}</p>
-        </section>
+          <section>
+            <h4>
+              Genre<span className="colon">:</span>
+            </h4>
+            <p>{genre}</p>
+            <h4>
+              Platforms<span className="colon">:</span>
+            </h4>
+            <div className="card__platforms">
+              {platforms.map((platform) => (
+                <p key={platform}>{platform}</p>
+              ))}
+            </div>
+            <h4>
+              Description<span className="colon">:</span>
+            </h4>
+            <p className="card__description">{description}</p>
+          </section>
+          <Button
+            type="form"
+            text="Edit videogame"
+            actionOnClick={() => {}}
+          ></Button>
+        </div>
       </VideogameDetailStyle>
     </>
   );
