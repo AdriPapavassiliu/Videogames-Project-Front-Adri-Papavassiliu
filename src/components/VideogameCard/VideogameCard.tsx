@@ -66,6 +66,7 @@ export const VideogameCardStyle = styled.li`
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
 
     & h3 {
       display: flex;

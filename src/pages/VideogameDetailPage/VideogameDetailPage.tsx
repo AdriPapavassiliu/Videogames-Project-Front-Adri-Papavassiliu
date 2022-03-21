@@ -12,6 +12,10 @@ export const VideogameDetailPageStyle = styled.div`
   justify-content: center;
 `;
 
+export interface VideogameDetailInterface {
+  videogame: Videogame;
+}
+
 const VideogameDetailPage = (): JSX.Element => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -23,16 +27,16 @@ const VideogameDetailPage = (): JSX.Element => {
   useEffect(() => {
     dispatch(loadVideogameThunk(id as string));
   }, [dispatch, id]);
-  interface VideogameDetail {
-    videogame: Videogame;
-  }
+
   return (
     <>
-      {(videogame as unknown as VideogameDetail).videogame ? (
+      {(videogame as unknown as VideogameDetailInterface).videogame ? (
         <VideogameDetailPageStyle>
           <VideogameDetail
             user={user}
-            videogame={(videogame as unknown as VideogameDetail).videogame}
+            videogame={
+              (videogame as unknown as VideogameDetailInterface).videogame
+            }
           />
         </VideogameDetailPageStyle>
       ) : (

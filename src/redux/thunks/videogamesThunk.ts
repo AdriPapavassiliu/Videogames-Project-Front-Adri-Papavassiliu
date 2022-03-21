@@ -89,7 +89,7 @@ export const updateVideogameThunk =
     data.append("image", videogame.image);
 
     const response = await fetch(
-      `${process.env.REACT_APP_URLAPI}videogames/update`,
+      `${process.env.REACT_APP_URLAPI}videogames/update/${id}`,
       {
         method: "PUT",
         headers: {
@@ -101,8 +101,8 @@ export const updateVideogameThunk =
 
     const responseVideogame = await response.json();
 
-    if (responseVideogame.message === "Videogame updated") {
-      dispatch(updateVideogameAction(responseVideogame.videogame));
+    if (responseVideogame.name) {
+      dispatch(updateVideogameAction(responseVideogame));
     }
   };
 

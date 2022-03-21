@@ -6,8 +6,19 @@ import AddVideogamePage from "./pages/AddVideogamePage/AddVideogamePage";
 import RegisterUserPage from "./pages/RegisterUserPage/RegisterUserPage";
 import LoginUserPage from "./pages/LoginUserPage/LoginUserPage";
 import VideogameDetailPage from "./pages/VideogameDetailPage/VideogameDetailPage";
+import UpdateVideogamePage from "./pages/UpdateVideogamePage/UpdateVideogamePage";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { loginUserAction } from "./redux/actions/actionsCreators";
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const token = localStorage.getItem("userToken");
+    if (token) {
+      dispatch(loginUserAction({ username: "user", password: "" }));
+    }
+  });
   return (
     <>
       <Navigation />
@@ -22,6 +33,7 @@ function App() {
           element={"placeholder <MyVideogamesPage />"}
         />
         <Route path="/add-videogame" element={<AddVideogamePage />} />
+        <Route path="/update-videogame/:id" element={<UpdateVideogamePage />} />
         <Route path="*" element={"<NotFoundPage />"} />
       </Routes>
     </>

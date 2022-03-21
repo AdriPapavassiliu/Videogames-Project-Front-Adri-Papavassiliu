@@ -1,12 +1,13 @@
 import * as React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { addVideogameThunk } from "../../redux/thunks/videogamesThunk";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from "../Button/Button";
+import { Videogame } from "../../interfaces/Videogame";
+import { VideogameDetailInterface } from "../../pages/VideogameDetailPage/VideogameDetailPage";
 
 export const VideogameFormStyle = styled.div`
   display: flex;
@@ -80,12 +81,21 @@ interface IFormInput {
   image: string;
 }
 
+interface VideogameFormProps {
+  thunk: (videogame: Videogame, id?: string) => void;
+  videogame?: VideogameDetailInterface;
+}
+
 toast.configure();
-const VideogameForm = () => {
+const VideogameForm = ({
+  thunk,
+  videogame,
+}: VideogameFormProps): JSX.Element => {
   const dispatch = useDispatch();
+  const { id } = useParams();
   const navigate = useNavigate();
-  const { register, watch, handleSubmit } = useForm<IFormInput>({
-    defaultValues: {
+  const blankFields = (videogame as VideogameDetailInterface) ?? {
+    videogame: {
       name: "",
       genre: "",
       platforms: [],
@@ -93,12 +103,17 @@ const VideogameForm = () => {
       description: "",
       image: "",
     },
+  };
+
+  const { register, watch, handleSubmit } = useForm<IFormInput>({
+    defaultValues: blankFields.videogame,
   });
+
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    if (data.image) {
+    if (data.image && videogame?.videogame.image !== data.image) {
       data.image = data.image[0];
     }
-    dispatch(addVideogameThunk(data));
+    id ? dispatch(thunk(data, id)) : dispatch(thunk(data));
     navigate("/");
   };
   const watchRequiredFields = watch([
