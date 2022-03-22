@@ -10,6 +10,8 @@ import UpdateVideogamePage from "./pages/UpdateVideogamePage/UpdateVideogamePage
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loginUserAction } from "./redux/actions/actionsCreators";
+import { LogoutPage } from "./pages/LogoutPage/LogoutPage";
+import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -25,6 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/login" element={<LoginUserPage />} />
+        <Route path="/logout" element={<LogoutPage />} />
         <Route path="/register" element={<RegisterUserPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/videogames/:id" element={<VideogameDetailPage />} />
@@ -34,7 +37,7 @@ function App() {
         />
         <Route path="/add-videogame" element={<AddVideogamePage />} />
         <Route path="/update-videogame/:id" element={<UpdateVideogamePage />} />
-        <Route path="*" element={"<NotFoundPage />"} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
