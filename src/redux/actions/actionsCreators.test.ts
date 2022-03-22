@@ -6,6 +6,7 @@ import {
   loadVideogameAction,
   loadVideogamesAction,
   loginUserAction,
+  logoutAction,
   registerUserAction,
   updateVideogameAction,
 } from "./actionsCreators";
@@ -174,6 +175,20 @@ describe("Given a load-videogame action", () => {
       };
 
       const action = loadVideogameAction(videogame);
+
+      expect(action).toEqual(expectedAction);
+    });
+  });
+});
+
+describe("Given a logoutAction function", () => {
+  describe("When it's invoked", () => {
+    test("Then it should return an object with the action", () => {
+      const expectedAction = {
+        type: "logout",
+      };
+
+      const action = logoutAction();
 
       expect(action).toEqual(expectedAction);
     });

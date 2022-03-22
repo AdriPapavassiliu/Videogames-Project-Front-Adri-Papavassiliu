@@ -6,6 +6,7 @@ const actionsTypes = {
   loginUser: "login-user",
   updateVideogame: "update-videogame",
   loadVideogame: "load-videogame",
+  logout: "logout",
 };
 
 export default actionsTypes;

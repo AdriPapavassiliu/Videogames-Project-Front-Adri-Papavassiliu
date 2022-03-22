@@ -55,3 +55,7 @@ export const loadVideogameAction = (
   type: actionsTypes.loadVideogame,
   videogame,
 });
+
+export const logoutAction = () => ({
+  type: actionsTypes.logout,
+});
