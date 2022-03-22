@@ -105,8 +105,13 @@ const VideogameForm = ({
     },
   };
 
-  const { register, watch, handleSubmit } = useForm<IFormInput>({
+  const {
+    register,
+    handleSubmit,
+    formState: { isDirty, isValid },
+  } = useForm<IFormInput>({
     defaultValues: blankFields.videogame,
+    mode: "onChange",
   });
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
@@ -116,26 +121,6 @@ const VideogameForm = ({
     id ? dispatch(thunk(data, id)) : dispatch(thunk(data));
     navigate("/");
   };
-  const watchRequiredFields = watch([
-    "name",
-    "genre",
-    "platforms",
-    "year",
-    "description",
-    "image",
-  ]);
-
-  const isInvalid =
-    watchRequiredFields[0] === "" ||
-    watchRequiredFields[0].length > 30 ||
-    watchRequiredFields[1] === "" ||
-    watchRequiredFields[3] === "" ||
-    watchRequiredFields[3].length !== 4 ||
-    parseInt(watchRequiredFields[3]) < 1980 ||
-    parseInt(watchRequiredFields[3]) > 2025 ||
-    watchRequiredFields[4].length < 3 ||
-    watchRequiredFields[4].length > 300 ||
-    watchRequiredFields[5] === "";
 
   return (
     <VideogameFormStyle>
@@ -222,7 +207,7 @@ const VideogameForm = ({
         </div>
 
         <Button
-          disabled={id ? false : isInvalid}
+          disabled={!isDirty || !isValid}
           type="form"
           text={id ? "Edit Videogame" : "Create Videogame"}
           actionOnClick={() => {
@@ -233,7 +218,7 @@ const VideogameForm = ({
               hideProgressBar: true,
             });
           }}
-          className={isInvalid ? "disabled" : ""}
+          className={!isValid ? "disabled" : ""}
         ></Button>
       </form>
     </VideogameFormStyle>
