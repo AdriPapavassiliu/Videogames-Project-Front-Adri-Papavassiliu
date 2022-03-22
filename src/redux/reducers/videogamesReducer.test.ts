@@ -182,7 +182,7 @@ describe("Given a videogamesReducer function", () => {
   });
 
   describe("When it is called with an updateVideogame action with 'currentVideogames' and the updated videogame", () => {
-    test("Then it should the new videogame", () => {
+    test("Then it should return the updated videogame", () => {
       const currentVideogames: Videogame[] = [
         {
           name: "GTA V",
@@ -211,9 +211,9 @@ describe("Given a videogamesReducer function", () => {
         videogame: updatedVideogame,
       };
 
-      const newPlayers = videogamesReducer(currentVideogames, action);
+      const newVideogames = videogamesReducer(currentVideogames, action);
 
-      expect(newPlayers).toContain(updatedVideogame);
+      expect(newVideogames).toContain(updatedVideogame);
     });
   });
 });
