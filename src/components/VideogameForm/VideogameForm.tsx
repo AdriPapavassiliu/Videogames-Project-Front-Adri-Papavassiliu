@@ -140,7 +140,7 @@ const VideogameForm = ({
   return (
     <VideogameFormStyle>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
-        <h2>Create Videogame</h2>
+        <h2>{id ? "Edit Videogame" : "Create Videogame"}</h2>
         <div className="form--name">
           <label>Name</label>
           <input
@@ -222,11 +222,11 @@ const VideogameForm = ({
         </div>
 
         <Button
-          disabled={isInvalid}
+          disabled={id ? false : isInvalid}
           type="form"
-          text="Create Videogame"
+          text={id ? "Edit Videogame" : "Create Videogame"}
           actionOnClick={() => {
-            toast.success("Videogame created", {
+            toast.success(id ? "Videogame updated" : "Videogame created", {
               position: toast.POSITION.BOTTOM_RIGHT,
               autoClose: 500,
               theme: "dark",
