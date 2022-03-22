@@ -2,6 +2,8 @@ import {
   addVideogameThunk,
   deleteVideogameThunk,
   loadVideogamesThunk,
+  loadVideogameThunk,
+  updateVideogameThunk,
 } from "./videogamesThunk";
 
 describe("Given a loadVideogamesThunk function", () => {
@@ -29,17 +31,17 @@ describe("Given a deleteVideogameThunk function", () => {
     });
   });
 
-  // describe("When it is called with '45' as id", () => {
-  //   test("Then it should not dispatch a function", async () => {
-  //     const videogameId = "45";
-  //     const dispatch = jest.fn();
+  describe("When it is called with '45' as id", () => {
+    test("Then it should not dispatch a function", async () => {
+      const videogameId = "45";
+      const dispatch = jest.fn();
 
-  //     const innerThunk = await deleteVideogameThunk(videogameId);
-  //     await innerThunk(dispatch);
+      const innerThunk = await deleteVideogameThunk(videogameId);
+      await innerThunk(dispatch);
 
-  //     expect(dispatch).not.toHaveBeenCalled();
-  //   });
-  // });
+      expect(dispatch).not.toHaveBeenCalled();
+    });
+  });
 });
 
 describe("Given an addVideogameThunk function", () => {
@@ -57,6 +59,45 @@ describe("Given an addVideogameThunk function", () => {
       const dispatch = jest.fn();
 
       const innerThunk = await addVideogameThunk(videogame);
+      await innerThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given an updateVideogameThunk function", () => {
+  describe("When it is called with a videogame and id", () => {
+    test("Then it should dispatch a function", async () => {
+      const id = "1";
+
+      const videogame = {
+        name: "Apex Legends",
+        image: "https://www.xtrafondos.com/descargar.php?id=3030&vertical=1",
+        platforms: ["PS4", "XBOX", "PS5", "PC"],
+        genre: "Shooter",
+        description:
+          "A free-to-play strategic battle royale game featuring 60-player matches and team-based play",
+        year: "2019",
+        id: id,
+      };
+      const dispatch = jest.fn();
+
+      const innerThunk = await updateVideogameThunk(videogame, id);
+      await innerThunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given an loadVideogameThunk function", () => {
+  describe("When it is called with a videogameId", () => {
+    test("Then it should dispatch a function", async () => {
+      const id = "2";
+      const dispatch = jest.fn();
+
+      const innerThunk = await loadVideogameThunk(id);
       await innerThunk(dispatch);
 
       expect(dispatch).toHaveBeenCalled();
