@@ -19,7 +19,6 @@ const UpdateVideogamePage = (): JSX.Element => {
   useEffect(() => {
     dispatch(loadVideogameThunk(id as string));
   }, [dispatch, id]);
-  console.log(videogameToUpdate);
   return (
     <>
       {(videogameToUpdate as unknown as VideogameDetailInterface).videogame !==
