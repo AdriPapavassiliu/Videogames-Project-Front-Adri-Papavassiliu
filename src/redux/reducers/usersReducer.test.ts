@@ -64,4 +64,18 @@ describe("Given a usersReducer function", () => {
       expect(newState).toEqual(user);
     });
   });
+
+  describe("When it is called with a logout action", () => {
+    test("Then it should return an empty new state", () => {
+      const currentState = { user: "sadcsa", password: "dscsd" };
+
+      const action = {
+        type: actionsTypes.logout,
+      };
+
+      const newState = usersReducer(currentState, action);
+
+      expect(newState).toStrictEqual({});
+    });
+  });
 });

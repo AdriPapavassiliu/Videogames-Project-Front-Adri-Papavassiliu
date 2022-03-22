@@ -16,6 +16,9 @@ const usersReducer = (currentState = {}, action: Action = { type: "" }) => {
     case actionsTypes.loginUser:
       newUser = { ...(action as LoginUserActionInterface).user };
       break;
+    case actionsTypes.logout:
+      newUser = {};
+      break;
     default:
       newUser = { ...currentState };
       break;
