@@ -189,6 +189,7 @@ const VideogameDetail = ({
         <div className="card__image">
           {(user as User).username ? (
             <button
+              data-testid="delete-button"
               className="delete-button"
               onClick={() => {
                 deleteVideogame(id);
