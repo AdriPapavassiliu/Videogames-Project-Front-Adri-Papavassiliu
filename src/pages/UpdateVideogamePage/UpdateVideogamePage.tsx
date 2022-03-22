@@ -19,12 +19,18 @@ const UpdateVideogamePage = (): JSX.Element => {
   useEffect(() => {
     dispatch(loadVideogameThunk(id as string));
   }, [dispatch, id]);
-
   return (
-    <VideogameForm
-      thunk={updateVideogameThunk}
-      videogame={videogameToUpdate as unknown as VideogameDetailInterface}
-    />
+    <>
+      {(videogameToUpdate as unknown as VideogameDetailInterface).videogame !==
+      undefined ? (
+        <VideogameForm
+          thunk={updateVideogameThunk}
+          videogame={videogameToUpdate as unknown as VideogameDetailInterface}
+        />
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 
