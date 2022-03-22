@@ -27,7 +27,7 @@ const VideogameDetailPage = (): JSX.Element => {
   useEffect(() => {
     dispatch(loadVideogameThunk(id as string));
   }, [dispatch, id]);
-  console.log(videogame);
+
   return (
     <>
       {(videogame as unknown as VideogameDetailInterface).videogame ? (
