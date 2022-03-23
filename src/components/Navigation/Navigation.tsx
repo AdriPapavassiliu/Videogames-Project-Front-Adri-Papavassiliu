@@ -72,7 +72,7 @@ const Navigation = (): JSX.Element => {
             </Link>
           </li>
           <li>
-            <Link to="https://movie-api-marc-giro.netlify.app/">
+            <Link to={(user as User).username ? "/my-videogames" : "/login"}>
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
