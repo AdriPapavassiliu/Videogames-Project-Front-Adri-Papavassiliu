@@ -1,9 +1,5 @@
 import actionsTypes from "../actions/actionsTypes";
-import {
-  Action,
-  LoginUserActionInterface,
-  RegisterUserActionInterface,
-} from "../../interfaces/Action";
+import { Action, LoginUserActionInterface } from "../../interfaces/Action";
 import { User, RegisterUser } from "../../interfaces/User";
 
 const usersReducer = (currentState = {}, action: Action = { type: "" }) => {
@@ -11,7 +7,7 @@ const usersReducer = (currentState = {}, action: Action = { type: "" }) => {
 
   switch (action.type) {
     case actionsTypes.registerUser:
-      newUser = { ...(action as RegisterUserActionInterface).user };
+      newUser = { ...currentState };
       break;
     case actionsTypes.loginUser:
       newUser = { ...(action as LoginUserActionInterface).user };

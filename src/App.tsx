@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { loginUserAction } from "./redux/actions/actionsCreators";
 import { LogoutPage } from "./pages/LogoutPage/LogoutPage";
 import { NotFoundPage } from "./pages/NotFoundPage/NotFoundPage";
+import { MyVideogamesPage } from "./pages/MyVideogamesPage/MyVideogamesPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,10 +33,7 @@ function App() {
         <Route path="/register" element={<RegisterUserPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/videogames/:id" element={<VideogameDetailPage />} />
-        <Route
-          path="/my-videogames"
-          element={"placeholder <MyVideogamesPage />"}
-        />
+        <Route path="/my-videogames" element={<MyVideogamesPage />} />
         <Route path="/add-videogame" element={<AddVideogamePage />} />
         <Route path="/update-videogame/:id" element={<UpdateVideogamePage />} />
         <Route path="*" element={<NotFoundPage />} />
