@@ -40,15 +40,19 @@ const VideogamesList = ({ videogames }: VideogameListProps): JSX.Element => {
       <MainStyles>
         <HeadingStyles>{videogames.length} items</HeadingStyles>
         <VideogameListStyles>
-          {videogames.map((videogame: Videogame) => {
-            return (
-              <VideogameCard
-                user={user}
-                videogame={videogame}
-                key={videogame.id}
-              />
-            );
-          })}
+          {videogames
+            .sort((a, b) => {
+              return a.name === b.name ? 0 : a.name < b.name ? -1 : 1;
+            })
+            .map((videogame: Videogame) => {
+              return (
+                <VideogameCard
+                  user={user}
+                  videogame={videogame}
+                  key={videogame.id}
+                />
+              );
+            })}
         </VideogameListStyles>
       </MainStyles>
     </>
