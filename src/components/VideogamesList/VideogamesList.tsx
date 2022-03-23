@@ -21,7 +21,7 @@ export const VideogameListStyles = styled.ul`
   justify-content: center;
 `;
 
-export const HeadingStyles = styled.h3`
+export const HeadingStyles = styled.h2`
   margin: 0;
   display: flex;
   transform: translateX(50px);
