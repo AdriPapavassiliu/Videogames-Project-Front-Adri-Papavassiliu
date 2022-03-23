@@ -203,7 +203,11 @@ const VideogameForm = ({
 
         <div className="form--image">
           <label>Image</label>
-          <input type="file" {...register("image", { required: true })} />
+          <input
+            data-testid="image"
+            type="file"
+            {...register("image", { required: true })}
+          />
         </div>
 
         <Button

@@ -4,6 +4,16 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../../redux/store";
 import Navigation from "./Navigation";
 
+const state = {
+  user: {
+    username: "username",
+  },
+};
+jest.mock("react-redux", () => ({
+  ...jest.requireActual("react-redux"),
+  useSelector: () => state.user,
+}));
+
 describe("Given a Navigation component", () => {
   describe("When it's rendered", () => {
     test("Then it should render 4 anchors", () => {

@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import "@fontsource/work-sans";
+import "@fontsource/montserrat-alternates";
 import HomePage from "./pages/HomePage/HomePage";
 import Navigation from "./components/Navigation/Navigation";
 import AddVideogamePage from "./pages/AddVideogamePage/AddVideogamePage";

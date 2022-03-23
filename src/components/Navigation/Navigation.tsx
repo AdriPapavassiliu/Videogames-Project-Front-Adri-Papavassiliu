@@ -5,7 +5,6 @@ import {
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
-import "@fontsource/montserrat-alternates";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
@@ -60,24 +59,33 @@ const Navigation = (): JSX.Element => {
       <Navbar className="nav-bar">
         <ul>
           <li className="account">
-            <Link to={(user as User).username ? "/logout" : "/login"}>
+            <Link
+              aria-label="Login"
+              to={(user as User).username ? "/logout" : "/login"}
+            >
               <FontAwesomeIcon icon={faUser} />
             </Link>
           </li>
           <li className="logo">
-            <Link to={"/home"}>
+            <Link aria-label="Home" to={"/home"}>
               <h1>
                 <span>Video</span>games
               </h1>
             </Link>
           </li>
           <li>
-            <Link to={(user as User).username ? "/my-videogames" : "/login"}>
+            <Link
+              aria-label="My videogames"
+              to={(user as User).username ? "/my-videogames" : "/login"}
+            >
               <FontAwesomeIcon icon={faHeart} />
             </Link>
           </li>
           <li>
-            <Link to={(user as User).username ? "/add-videogame" : "/login"}>
+            <Link
+              aria-label="Add videogame"
+              to={(user as User).username ? "/add-videogame" : "/login"}
+            >
               <FontAwesomeIcon icon={faSquarePlus} />
             </Link>
           </li>

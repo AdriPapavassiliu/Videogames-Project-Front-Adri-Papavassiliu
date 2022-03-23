@@ -34,6 +34,9 @@ const FilterBar = (): JSX.Element => {
         <li key={"PC"}>
           <Button text="PC" actionOnClick={() => {}} type="filter"></Button>
         </li>
+        <li key={"Switch"}>
+          <Button text="Switch" actionOnClick={() => {}} type="filter"></Button>
+        </li>
       </FilterBarStyles>
     </>
   );
