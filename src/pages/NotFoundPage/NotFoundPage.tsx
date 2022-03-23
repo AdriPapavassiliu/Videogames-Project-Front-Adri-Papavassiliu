@@ -9,7 +9,7 @@ const NotFoundPageStyle = styled.main`
 
   & img {
     width: 60vw;
-    height: 40vh;
+    max-height: 700px;
   }
 `;
 
